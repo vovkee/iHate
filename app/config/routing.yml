@@ -1,0 +1,4 @@
+ihate_client:
+    resource: "@ihateClientBundle/Controller/"
+    type:     annotation
+    prefix:   /

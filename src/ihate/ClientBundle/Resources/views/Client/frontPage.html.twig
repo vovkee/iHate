@@ -1,0 +1,15 @@
+{% extends "ihateClientBundle::layoutLoggedOut.html.twig" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <blockquote>“To truly hate is an art one learns with time.”
+                    ― Carlos Ruiz Zafón, The Shadow of the Wind
+                </blockquote>
+            </div>
+            <div class="col-md-6">
+                {% include "ihateClientBundle:Security:login.html.twig" %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

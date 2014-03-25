@@ -1,0 +1,32 @@
+{% extends "ihateClientBundle::layoutLoggedOut.html.twig" %}
+
+{% block content %}
+<div class="contentF">
+    <div class="regform">
+            <form action="{{ path('account_create') }}" {{ form_enctype(form) }}  method="POST">
+                {{ form_label(form.user.username) }}
+                <ul class="error">{{ form_errors(form.user.username) }}</ul>
+                {{ form_widget(form.user.username, {'attr': {'class':'form-control','placeholder':'Enter your username'} }) }}
+                <br>
+
+                {{ form_label(form.user.email) }}
+                <ul class="error">{{ form_errors(form.user.email) }}</ul>
+                {{ form_widget(form.user.email, {'attr': {'class':'form-control','placeholder':'Enter your email'} }) }}
+                <br>
+
+                {% for passwordField in form.user.password %}
+                        {{ form_label(passwordField, null, { 'attr': {'class': 'form-control'} }) }}
+                        {{ form_widget(passwordField, { 'attr': {'class': 'form-control', 'placeholder': 'Enter your password'} }) }}
+                        <br>
+                {% endfor %}
+
+                {{ form_label(form.terms) }}
+                <ul class="error">{{ form_errors(form.terms) }}</ul>
+                {{ form_widget(form.terms) }}
+
+                {{ form_rest(form) }}
+
+            </form>
+        </div>
+</div>
+{% endblock content %}
