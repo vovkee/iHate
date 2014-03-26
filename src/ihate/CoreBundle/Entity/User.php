@@ -3,72 +3,88 @@
 namespace ihate\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * User
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="ihate\CoreBundle\Repository\UserRepository")
- * @UniqueEntity(fields="email", message="Sorry, Email is already taken")
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"}), @ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})}, indexes={@ORM\Index(name="country_id", columns={"country_id"})})
+ * @ORM\Entity
  */
-class User implements UserInterface
+class User
 {
     /**
      * @var integer
-     * @ORM\Column(name="id", type="integer")
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
-     * @ORM\Column(name="username", type="string", length=255)
-     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=45, nullable=false)
      */
     private $username;
 
     /**
      * @var string
-     * @ORM\Column(name="email", type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Email()
+     *
+     * @ORM\Column(name="email", type="string", length=45, nullable=false)
      */
     private $email;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birthday", type="date", nullable=false)
+     */
+    private $birthday;
+
+    /**
      * @var string
-     * @ORM\Column(name="password", type="string", length=255)
-     * @Assert\NotBlank()
-     * @Assert\Length(max = 4096)
+     *
+     * @ORM\Column(name="gender", type="string", length=1, nullable=false)
+     */
+    private $gender;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=45, nullable=false)
      */
     private $password;
 
     /**
      * @var string
-     * @ORM\Column(name="salt", type="string", length=32)
-     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="salt", type="string", length=45, nullable=false)
      */
     private $salt;
 
     /**
-     * @var \DateTime
+     * @var \Country
      *
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
+     * })
      */
-    private $createdAt;
+    private $country;
 
-    /**
-     * @ORM\Column(name="is_active", type="boolean")
-     */
-    private $isActive;
+
 
     /**
      * Get id
+     *
      * @return integer 
      */
     public function getId()
@@ -82,6 +98,29 @@ class User implements UserInterface
      * @param string $name
      * @return User
      */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
     public function setUsername($username)
     {
         $this->username = $username;
@@ -90,46 +129,13 @@ class User implements UserInterface
     }
 
     /**
-     * Get name
+     * Get username
      *
-     * @return string
-     */
-    public function getUserame()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Get Email for security/login
-     *
-     * @return string
+     * @return string 
      */
     public function getUsername()
     {
         return $this->username;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
     }
 
     /**
@@ -156,63 +162,72 @@ class User implements UserInterface
     }
 
     /**
-     * Set createdAt
+     * Set birthday
      *
-     * @param \DateTime $createdAt
+     * @param \DateTime $birthday
      * @return User
      */
-    public function setCreatedAt($createdAt)
+    public function setBirthday($birthday)
     {
-        $this->createdAt = $createdAt;
+        $this->birthday = $birthday;
 
         return $this;
     }
 
     /**
-     * Get createdAt
+     * Get birthday
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
+    public function getBirthday()
     {
-        return $this->createdAt;
-    }
-    /**
-     * @ORM\PrePersist
-     */
-    public function setCreatedAtValue()
-    {
-        if(!$this->getCreatedAt())
-        {
-            $this->createdAt = new \DateTime();
-        }
+        return $this->birthday;
     }
 
     /**
-     * @inheritDoc
+     * Set gender
+     *
+     * @param string $gender
+     * @return User
      */
-    public function getSalt()
+    public function setGender($gender)
     {
-        return null;
-    }
-    /**
-     * @inheritDoc
-     */
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
-    /**
-     * @inheritDoc
-     */
-    public function eraseCredentials()
-    {
+        $this->gender = $gender;
+
+        return $this;
     }
 
-    public function __construct()
+    /**
+     * Get gender
+     *
+     * @return string 
+     */
+    public function getGender()
     {
-        $this->isActive = true;
-        $this->salt = md5(rand());
+        return $this->gender;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
     }
 
     /**
@@ -229,25 +244,35 @@ class User implements UserInterface
     }
 
     /**
-     * Set isActive
+     * Get salt
      *
-     * @param boolean $isActive
+     * @return string 
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Set country
+     *
+     * @param \ihate\CoreBundle\Entity\Country $country
      * @return User
      */
-    public function setIsActive($isActive)
+    public function setCountry(\ihate\CoreBundle\Entity\Country $country = null)
     {
-        $this->isActive = $isActive;
+        $this->country = $country;
 
         return $this;
     }
 
     /**
-     * Get isActive
+     * Get country
      *
-     * @return boolean 
+     * @return \ihate\CoreBundle\Entity\Country 
      */
-    public function getIsActive()
+    public function getCountry()
     {
-        return $this->isActive;
+        return $this->country;
     }
 }
