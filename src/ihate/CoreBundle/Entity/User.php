@@ -3,14 +3,17 @@
 namespace ihate\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
+//, indexes={@ORM\Index(name="country_id", columns={"country_id"})}
 /**
  * User
  *
- * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"}), @ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})}, indexes={@ORM\Index(name="country_id", columns={"country_id"})})
+ * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"}), @ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})})
  * @ORM\Entity
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -31,9 +34,9 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=45, nullable=false)
+     * @ORM\Column(name="surname", type="string", length=45, nullable=false)
      */
-    private $username;
+    private $surname;
 
     /**
      * @var string
@@ -43,30 +46,27 @@ class User
     private $email;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="birthday", type="date", nullable=false)
-     */
-    private $birthday;
-
-    /**
      * @var string
-     *
      * @ORM\Column(name="gender", type="string", length=1, nullable=false)
+     *
      */
     private $gender;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=45, nullable=false)
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     * @Assert\Length(
+     *      min = "3",
+     *      max = "45",
+     *      minMessage = "Your password must be at least {{ limit }} characters length",
+     *      maxMessage = "Your password cannot be longer than {{ limit }} characters length")
      */
     private $password;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="salt", type="string", length=45, nullable=false)
+     * @ORM\Column(name="salt", type="string", length=32, nullable=false)
      */
     private $salt;
 
@@ -80,8 +80,6 @@ class User
      */
     private $country;
 
-
-
     /**
      * Get id
      *
@@ -90,52 +88,6 @@ class User
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return User
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return User
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string 
-     */
-    public function getUsername()
-    {
-        return $this->username;
     }
 
     /**
@@ -159,29 +111,6 @@ class User
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Set birthday
-     *
-     * @param \DateTime $birthday
-     * @return User
-     */
-    public function setBirthday($birthday)
-    {
-        $this->birthday = $birthday;
-
-        return $this;
-    }
-
-    /**
-     * Get birthday
-     *
-     * @return \DateTime 
-     */
-    public function getBirthday()
-    {
-        return $this->birthday;
     }
 
     /**
@@ -231,29 +160,6 @@ class User
     }
 
     /**
-     * Set salt
-     *
-     * @param string $salt
-     * @return User
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
-
-        return $this;
-    }
-
-    /**
-     * Get salt
-     *
-     * @return string 
-     */
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
-    /**
      * Set country
      *
      * @param \ihate\CoreBundle\Entity\Country $country
@@ -275,4 +181,88 @@ class User
     {
         return $this->country;
     }
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     * @return User
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string 
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function __construct() {
+        $this->initSalt();
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function initSalt() {
+        $this->salt = substr(sha1(rand(1, 1000000)), 0, 32);
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getRoles()
+    {
+       return array('ROLE_USER');
+    }
+
 }

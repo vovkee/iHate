@@ -1,6 +1,9 @@
 security:
     encoders:
-        ihate\CoreBundle\Entity\User: sha512
+        ihate\CoreBundle\Entity\User:
+                          algorithm:           sha512
+                          encode_as_base64:    true
+                          iterations:          76
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -8,7 +11,7 @@ security:
 
     providers:
         login_provider:
-            entity: { class: ihate\CoreBundle\Entity\User, property: username }
+            entity: { class: ihate\CoreBundle\Entity\User, property: email }
 
 
     firewalls:
@@ -19,6 +22,7 @@ security:
             provider: login_provider
             pattern:  ^/
             form_login:
+                always_use_default_target_path: true
                 check_path: login_check
                 login_path: login
             logout:
@@ -28,5 +32,6 @@ security:
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: ROLE_USER }

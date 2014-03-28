@@ -5,26 +5,27 @@
     {% stylesheets
     '@ihateClientBundle/Resources/public/css/bootstrap.css'
     '@ihateClientBundle/Resources/public/css/custom.css'
-    '@ihateClientBundle/Resources/public/css/signin.css'
     '@ihateClientBundle/Resources/public/css/dashboard.css'
     %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 </head>
 <body>
-{{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
-{% block sideMenu %}
-{% endblock sideMenu %}
 
-{% block postsArea %}
-{% endblock postsArea %}
+    {{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
+    <div class="content">
+         <div class="container-fluid">
+            {% block content %}
+            {% endblock content %}
+         </div>
+    </div>
 
-{% javascripts
-'@ihateClientBundle/Resources/public/js/jquery.js'
-'@ihateClientBundle/Resources/public/js/bootstrap.js'
-%}
-<script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
+    {% javascripts
+    '@ihateClientBundle/Resources/public/js/jquery.js'
+    '@ihateClientBundle/Resources/public/js/bootstrap.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 
 </body>
 </html>

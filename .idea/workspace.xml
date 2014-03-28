@@ -17,17 +17,38 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="inAccount.html.twig" pinned="false" current="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/inAccount.html.twig">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="11" column="13" selection-start="339" selection-end="339" vertical-scroll-proportion="0.2672065" vertical-offset="0" max-vertical-offset="741">
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="ihate" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="register.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/register.html.twig">
+      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="60" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
-              <folding />
+            <state line="226" column="58" selection-start="4276" selection-end="4276" vertical-scroll-proportion="-7.3333335" vertical-offset="3870" max-vertical-offset="4932">
+              <folding>
+                <element signature="e#43#75#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -35,61 +56,34 @@
       <file leaf-file-name="login.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Security/login.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="85" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="432">
+            <state line="17" column="19" selection-start="960" selection-end="960" vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="414">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navbarOut.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarOut.html.twig">
+      <file leaf-file-name="custom.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="6" selection-start="869" selection-end="869" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="450">
+            <state line="37" column="15" selection-start="602" selection-end="602" vertical-scroll-proportion="0.63741004" vertical-offset="223" max-vertical-offset="918">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContentController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Controller/ContentController.php">
+      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="558">
+            <state line="5044" column="57" selection-start="106533" selection-end="106787" vertical-scroll-proportion="-12.3" vertical-offset="90423" max-vertical-offset="104238">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="security.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <file leaf-file-name="sideMenuIn.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/sideMenuIn.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="19" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="684">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inAccount.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/inAccount.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="23" selection-start="483" selection-end="483" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="396">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parameters.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="42" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hate.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Entity/Hate.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.82222223" vertical-offset="234" max-vertical-offset="1044">
+            <state line="9" column="6" selection-start="340" selection-end="340" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="270">
               <folding />
             </state>
           </provider>
@@ -98,16 +92,16 @@
       <file leaf-file-name="layoutLoggedIn.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/layoutLoggedIn.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="51" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="648">
+            <state line="18" column="31" selection-start="555" selection-end="555" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="666">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navbarIn.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarIn.html.twig">
+      <file leaf-file-name="frontPage.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/frontPage.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="6" selection-start="944" selection-end="944" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="468">
+            <state line="9" column="0" selection-start="417" selection-end="417" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="432">
               <folding />
             </state>
           </provider>
@@ -125,7 +119,6 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/ihate/CoreBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/config/routing_dev.yml" />
         <option value="$PROJECT_DIR$/src/ihate/CoreBundle/Repository/UserRepository.php" />
         <option value="$PROJECT_DIR$/src/ihate/CoreBundle/Form/Model/Registration.php" />
@@ -138,41 +131,48 @@
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/login.html.twig.html" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/login.html.twig" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/regconfirm.html.twig" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/src/ihate/CoreBundle/Form/Type/UserType.php" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/custom.css" />
         <option value="$PROJECT_DIR$/src/ihate/CoreBundle/Controller/AdvancedController.php" />
         <option value="$PROJECT_DIR$/src/ihate/CoreBundle/Form/Type/RegistrationType.php" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Security/dumpString.html.twig" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/signin.css" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/frontpage.html.twig" />
         <option value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/SecurityContextInterface.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/frontPage.html.twig" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbar.html.twig" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Controller/ContentController.php" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/src/ihate/CoreBundle/DataFixtures/ORM/CountryFixtures.php" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/footer.css" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/regConfirm.html.twig" />
+        <option value="$PROJECT_DIR$/src/ihate/CoreBundle/Form/Type/UserType.php" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Controller/ClientController.php" />
+        <option value="$PROJECT_DIR$/app/config/security.yml" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/js/jquery.js" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/signin.css" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/layoutLoggedOut.html.twig" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/register.html.twig" />
         <option value="$PROJECT_DIR$/src/ihate/CoreBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/layoutLoggedOut.html.twig" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarOut.html.twig" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Controller/ContentController.php" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Controller/ClientController.php" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Security/login.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarIn.html.twig" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/frontPage.html.twig" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/dashboard.css" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarOut.html.twig" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarIn.html.twig" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/sideMenuIn.html.twig" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/layoutLoggedIn.html.twig" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/inAccount.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/custom.css" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="993" />
-    <option name="y" value="52" />
-    <option name="width" value="927" />
-    <option name="height" value="1028" />
+    <option name="x" value="944" />
+    <option name="y" value="-876" />
+    <option name="width" value="758" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -325,7 +325,139 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClientBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClientBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageStructure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClientBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ihate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClientBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -349,12 +481,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../twitter" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css" />
+      <recent name="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public" />
       <recent name="$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure" />
       <recent name="$PROJECT_DIR$/web/bundles/ihateclient/images" />
     </key>
@@ -407,20 +542,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="993" y="52" width="927" height="1028" extended-state="4" />
-    <editor active="false" />
+    <frame x="944" y="-876" width="758" height="877" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40237325" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16005291" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -432,19 +567,19 @@
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25682032" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33454546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -464,56 +599,11 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/layoutLoggedOut.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="30" selection-start="859" selection-end="859" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="1152" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="56" selection-start="979" selection-end="979" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1350" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="8" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="104310" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="198" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Controller/ClientController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="1" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="522">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/frontPage.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="10" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/layoutLoggedOut.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="288" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Form/Model/Registration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="828" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Form/Type/RegistrationType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="1" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="522" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="0" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="360" />
@@ -527,11 +617,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="23" selection-start="87" selection-end="87" vertical-scroll-proportion="0.097297296" vertical-offset="0" max-vertical-offset="925" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1393" selection-end="1393" vertical-scroll-proportion="-23.333334" vertical-offset="0" max-vertical-offset="738" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/ihateClientBundle.php">
@@ -549,49 +634,14 @@
         <state line="14" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Repository/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="37" selection-start="44" selection-end="44" vertical-scroll-proportion="0.044444446" vertical-offset="0" max-vertical-offset="810" />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/applications.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="261" column="21" selection-start="6024" selection-end="6024" vertical-scroll-proportion="1.4245284" vertical-offset="3641" max-vertical-offset="6660" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/images/dark.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="727" column="24" selection-start="10789" selection-end="10789" vertical-scroll-proportion="2.2219706" vertical-offset="11124" max-vertical-offset="104238" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Controller/AdvancedController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="28" selection-start="252" selection-end="252" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="450" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Form/Model/Registration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="523" selection-end="523" vertical-scroll-proportion="0.5943396" vertical-offset="0" max-vertical-offset="848" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Form/Type/UserType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="5" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.7111111" vertical-offset="0" max-vertical-offset="810" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Form/Type/RegistrationType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="1" selection-start="673" selection-end="673" vertical-scroll-proportion="0.53892213" vertical-offset="0" max-vertical-offset="835" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/signin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="826" selection-end="826" vertical-scroll-proportion="0.84705883" vertical-offset="0" max-vertical-offset="850" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/config/services.xml">
@@ -602,11 +652,6 @@
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/SecurityContextInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="59" selection-start="663" selection-end="663" vertical-scroll-proportion="0.33962265" vertical-offset="0" max-vertical-offset="901" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/cache/dev/classes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4514" column="6" selection-start="130935" selection-end="130935" vertical-scroll-proportion="0.34346846" vertical-offset="78103" max-vertical-offset="112518" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/User/UserInterface.php">
@@ -624,16 +669,6 @@
         <state line="46" column="9" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.37634408" vertical-offset="513" max-vertical-offset="1350" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/regConfirm.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="8" selection-start="186" selection-end="186" vertical-scroll-proportion="0.1273585" vertical-offset="0" max-vertical-offset="848" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="1" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/SessionInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="53" selection-start="1373" selection-end="1411" vertical-scroll-proportion="0.26576018" vertical-offset="973" max-vertical-offset="3726" />
@@ -644,99 +679,238 @@
         <state line="3" column="15" selection-start="101" selection-end="101" vertical-scroll-proportion="0.061714284" vertical-offset="0" max-vertical-offset="875" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/layoutLoggedOut.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Controller/ContentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="809" selection-end="809" vertical-scroll-proportion="-17.333334" vertical-offset="0" max-vertical-offset="576" />
+        <state line="25" column="0" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="558" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/register.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="60" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="684">
+        <state line="13" column="42" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Repository/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="37" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="378" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Form/Model/Registration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="29" selection-start="482" selection-end="482" vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="792">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Controller/ContentController.php">
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Entity/Category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="558">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1818" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Entity/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="17" selection-start="970" selection-end="970" vertical-scroll-proportion="-0.6666667" vertical-offset="846" max-vertical-offset="3006" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Entity/Country.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1818" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Entity/Hate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="0" selection-start="2376" selection-end="2376" vertical-scroll-proportion="-25.666666" vertical-offset="1629" max-vertical-offset="2466" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Entity/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4086" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Form/Type/RegistrationType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="1" selection-start="673" selection-end="673" vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="55" selection-start="742" selection-end="742" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="1080" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="72" selection-start="855" selection-end="855" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="756" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/DataFixtures/ORM/CountryFixtures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Form/Type/UserType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="3" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="882">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Encoder/EncoderFactoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="39" selection-start="714" selection-end="738" vertical-scroll-proportion="0.49930653" vertical-offset="0" max-vertical-offset="721">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Encoder/EncoderFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="39" selection-start="438" selection-end="438" vertical-scroll-proportion="0.27966103" vertical-offset="0" max-vertical-offset="1242">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Controller/ClientController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="2154" selection-end="2154" vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="2286">
-          <folding />
+        <state line="109" column="74" selection-start="3601" selection-end="3601" vertical-scroll-proportion="-34.42105" vertical-offset="0" max-vertical-offset="2394">
+          <folding>
+            <element signature="e#48#93#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="19" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
+        <state line="14" column="0" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Security/dumpString.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="873" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/frontPage.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="10" selection-start="513" selection-end="513" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarOut.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="6" selection-start="869" selection-end="869" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="450">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarIn.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/regConfirm.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="6" selection-start="944" selection-end="944" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="468">
+        <state line="6" column="58" selection-start="236" selection-end="236" vertical-scroll-proportion="0.14477211" vertical-offset="0" max-vertical-offset="746">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/js/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10305" column="7" selection-start="396946" selection-end="396946" vertical-scroll-proportion="0.13797814" vertical-offset="185389" max-vertical-offset="186156">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/signin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="826" selection-end="826" vertical-scroll-proportion="0.93143594" vertical-offset="0" max-vertical-offset="828">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="22" selection-start="2277" selection-end="2277" vertical-scroll-proportion="0.89694226" vertical-offset="0" max-vertical-offset="1008">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="0" selection-start="1484" selection-end="1484" vertical-scroll-proportion="0.9588571" vertical-offset="889" max-vertical-offset="1836" />
+        <state line="95" column="1" selection-start="1483" selection-end="1483" vertical-scroll-proportion="0.96210873" vertical-offset="1126" max-vertical-offset="1818">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/layoutLoggedOut.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="8" selection-start="224" selection-end="276" vertical-scroll-proportion="0.17475729" vertical-offset="0" max-vertical-offset="721">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarIn.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="6" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.5029412" vertical-offset="0" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/navbarOut.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="6" selection-start="660" selection-end="660" vertical-scroll-proportion="0.37058824" vertical-offset="0" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5044" column="57" selection-start="106533" selection-end="106787" vertical-scroll-proportion="-12.3" vertical-offset="90423" max-vertical-offset="104238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="226" column="58" selection-start="4276" selection-end="4276" vertical-scroll-proportion="-7.3333335" vertical-offset="3870" max-vertical-offset="4932">
+          <folding>
+            <element signature="e#43#75#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/layoutLoggedIn.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="51" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="648">
+        <state line="18" column="31" selection-start="555" selection-end="555" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/frontPage.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="417" selection-end="417" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="432">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/PageStructure/sideMenuIn.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="6" selection-start="340" selection-end="340" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="270">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="85" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="432">
+        <state line="17" column="19" selection-start="960" selection-end="960" vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="414">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/views/Client/inAccount.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="23" selection-start="483" selection-end="483" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="396">
+        <state line="11" column="13" selection-start="339" selection-end="339" vertical-scroll-proportion="0.2672065" vertical-offset="0" max-vertical-offset="741">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+    <entry file="file://$PROJECT_DIR$/src/ihate/ClientBundle/Resources/public/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="42" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ihate/CoreBundle/Entity/Hate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.82222223" vertical-offset="234" max-vertical-offset="1044">
+        <state line="37" column="15" selection-start="602" selection-end="602" vertical-scroll-proportion="0.63741004" vertical-offset="223" max-vertical-offset="918">
           <folding />
         </state>
       </provider>

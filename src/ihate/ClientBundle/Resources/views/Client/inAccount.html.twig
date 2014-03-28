@@ -1,17 +1,12 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 
-{% block sideMenu %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">MyOwnHates</a></li>
-                <li><a href="#">HateMates</a></li>
-                <li><a href="#">HateGroups</a></li>
-            </ul>
+{% block content %}
+<div class="row">
+    {{ include('ihateClientBundle:PageStructure:sideMenuIn.html.twig') }}
+    <div class="col-sm-7 col-md-7">
+        <div class="main-content">
+            <h1>sdpkgdfoigjdofijhgsiodfhgio</h1>
         </div>
-{% endblock sideMenu %}
-
-{% block postsArea %}
-{% endblock postsArea %}
+    </div>
+</div>
+{% endblock content %}

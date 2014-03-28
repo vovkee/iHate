@@ -1,19 +1,18 @@
-<div class="container">
-    {% if error is defined and error %}
-        <div>{{ error.message }}</div>
-    {% endif %}
-    <form action="{{ path('login_check') }}" method="post" class="form-signin">
 
-        <input type="text" id="username"  class="form-control" name="_username" value="{{ last_username }}" placeholder="Enter your name" />
-        <input type="password"  class="form-control" id="password" name="_password" placeholder="Enter your password"/>
+            {% if error is defined and error %}
+                <div>{{ error.message }}</div>
+            {% endif %}
+            <form action="{{ path('login_check') }}" method="post" class="form-signin" role="form">
 
-        {#
-            If you want to control the URL the user
-            is redirected to on success (more details below)
-            <input type="hidden" name="_target_path" value="/account" />
-        #}
+                <input type="text" id="username"  class="form-control" name="_username" value="{{ last_username }}" placeholder="Enter your name" />
+                <input type="password"  class="form-control" id="password" name="_password" placeholder="Enter your password"/>
 
-        <button type="submit" class="btn btn-lg btn-primary btn-block">login</button>
-        <a href="{{ path('account_create') }}" role="button">New to iHate?<br/>Sign Up</a>
-    </form>
-</div>
+                {#
+                    If you want to control the URL the user
+                    is redirected to on success (more details below)
+                    <input type="hidden" name="_target_path" value="/account" />
+                #}
+
+                <button type="submit" class="btn btn-lg btn-primary btn-block">login</button>
+                <a href="{{ path('account_create') }}" role="button">New to iHate?<br/>Sign Up</a>
+            </form>

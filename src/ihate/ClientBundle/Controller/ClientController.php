@@ -13,6 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ihate\CoreBundle\Form\Type\RegistrationType;
 use ihate\CoreBundle\Form\Model\Registration;
+use Symfony\Component\Security\Core\Encoder\EncoderFactory;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Symfony\Component\Security\Core\SecurityContext;
 
@@ -64,8 +65,10 @@ class ClientController extends AdvancedController
 
             $user = new User();
 
-            $user->setUsername($data->getUser()->getUsername())
+            $user->setName($data->getUser()->getName())
+                ->setSurname($data->getUser()->getSurname())
                 ->setEmail($data->getUser()->getEmail())
+                ->setGender($data->getUser()->getGender())
                 ->setPassword($this->encodePassword($user, $data->getUser()->getPassword()));
 
             $this->em()->persist($user);
@@ -95,8 +98,11 @@ class ClientController extends AdvancedController
         return $this->render('ihateClientBundle:Security:dumpString.html.twig', array());
     }
 
-    private function encodePassword($user, $plainPassword)
+    private function encodePassword(User $user, $plainPassword)
     {
+        /**
+         * @var EncoderFactory $encoder
+         */
         $encoder = $this->container->get('security.encoder_factory')
             ->getEncoder($user)
         ;
