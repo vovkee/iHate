@@ -17,4 +17,13 @@ class AdvancedController extends Controller
     {
         return $this->getDoctrine()->getManager();
     }
+
+    /**
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getUserRepository()
+    {
+        return $this->getDoctrine()->getManager()
+            ->getRepository('ihateCoreBundle:User');
+    }
 }

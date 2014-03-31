@@ -1,0 +1,22 @@
+{% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
+
+{% block content %}
+    <h1>WE REACH SEARCH PAGE!!!</h1>
+    <h3>You searched for "{{ search }}"</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Surname</th>
+        </tr>
+        </thead>
+    {% for user in result %}
+        <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+            <td>{{ loop.index }}</td>
+            <td class="name">{{ user.name }}</td>
+            <td class="surname">{{ user.surname }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock content %}

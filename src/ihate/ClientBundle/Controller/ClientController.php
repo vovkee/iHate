@@ -93,11 +93,6 @@ class ClientController extends AdvancedController
         return array();
     }
 
-    public function dumpStringAction()
-    {
-        return $this->render('ihateClientBundle:Security:dumpString.html.twig', array());
-    }
-
     private function encodePassword(User $user, $plainPassword)
     {
         /**

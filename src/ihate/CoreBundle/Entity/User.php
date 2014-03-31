@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * User
  *
  * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"}), @ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ihate\CoreBundle\Repository\UserRepository")
  */
 class User implements UserInterface
 {
@@ -21,6 +21,11 @@ class User implements UserInterface
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ManyToMany(targetEntity="Follow")
+     * @JoinTable(name="users_groups",
+     *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="group_id", referencedColumnName="id")}
+     *      )
      */
     private $id;
 
@@ -217,6 +222,7 @@ class User implements UserInterface
 
     public function __construct() {
         $this->initSalt();
+
     }
 
     public function eraseCredentials()

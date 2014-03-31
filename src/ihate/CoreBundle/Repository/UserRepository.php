@@ -12,4 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    /**
+     * @param $needle
+     * @return array
+     */
+    public function search($needle)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.name LIKE :needle')
+            ->setParameter('needle', '%'.$needle.'%')
+            ->getQuery()
+            ->getResult();
+    }
 }
