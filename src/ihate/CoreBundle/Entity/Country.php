@@ -35,7 +35,10 @@ class Country
      */
     private $code;
 
-
+    public function __toString()
+    {
+        return $this->title;
+    }
 
     /**
      * Get id

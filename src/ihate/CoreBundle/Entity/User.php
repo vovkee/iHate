@@ -2,15 +2,15 @@
 
 namespace ihate\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-//, indexes={@ORM\Index(name="country_id", columns={"country_id"})}
 /**
  * User
  *
- * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"}), @ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})})
+ * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"}), @ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})}, indexes={@ORM\Index(name="country", columns={"country_id"})})
  * @ORM\Entity(repositoryClass="ihate\CoreBundle\Repository\UserRepository")
  */
 class User implements UserInterface
@@ -21,11 +21,6 @@ class User implements UserInterface
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
-     * @ManyToMany(targetEntity="Follow")
-     * @JoinTable(name="users_groups",
-     *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="group_id", referencedColumnName="id")}
-     *      )
      */
     private $id;
 
@@ -76,14 +71,29 @@ class User implements UserInterface
     private $salt;
 
     /**
-     * @var \Country
-     *
+     * @var Country
      * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
      */
     private $country;
+
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\JoinTable(name="follow",
+     *      joinColumns={@ORM\JoinColumn(name="follower_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="following_id", referencedColumnName="id")}
+     * )
+     */
+    private $follows;
+
+    public function __construct()
+    {
+        $this->initSalt();
+        $this->follows = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -220,11 +230,6 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function __construct() {
-        $this->initSalt();
-
-    }
-
     public function eraseCredentials()
     {
     }
@@ -271,4 +276,50 @@ class User implements UserInterface
        return array('ROLE_USER');
     }
 
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return User
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Add follows
+     *
+     * @param \ihate\CoreBundle\Entity\User $follows
+     * @return User
+     */
+    public function addFollow(User $follows)
+    {
+        $this->follows[] = $follows;
+
+        return $this;
+    }
+
+    /**
+     * Remove follows
+     *
+     * @param \ihate\CoreBundle\Entity\User $follows
+     */
+    public function removeFollow(User $follows)
+    {
+        $this->follows->removeElement($follows);
+    }
+
+    /**
+     * Get follows
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFollows()
+    {
+        return $this->follows;
+    }
 }

@@ -9,26 +9,28 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
-        $builder->add('surname');
-        $builder->add('email','email');
-        $builder->add('gender', 'choice', array(
-            'choices' => array(
-                'm' => 'Male',
-                'f' => 'Female'
-            ),
-            'required'    => true,
-            'empty_value' => 'Choose your gender',
-            'empty_data'  => null
-        ));
-        $builder->add('password', 'repeated', array(
-            'type' => 'password',
-            'invalid_message' => 'The password fields must match.',
-            'options' => array('attr' => array('class' => 'form-control')),
-            'required' => true,
-            'first_options'  => array('label' => 'Password'),
-            'second_options' => array('label' => 'Repeat Password'),
-        ));
+        $builder
+            ->add('name')
+            ->add('surname')
+            ->add('email','email')
+            ->add('gender', 'choice', array(
+                    'choices' => array(
+                        'm' => 'Male',
+                        'f' => 'Female'
+                ),
+                'required'    => true,
+                'empty_value' => 'Select your gender',
+                'empty_data'  => null
+            ))
+            ->add('country')
+            ->add('password', 'repeated', array(
+                'type' => 'password',
+                'invalid_message' => 'The password fields must match.',
+                'options' => array('attr' => array('class' => 'form-control')),
+                'required' => true,
+                'first_options'  => array('label' => 'Password'),
+                'second_options' => array('label' => 'Repeat Password'),
+            ));
     }
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {

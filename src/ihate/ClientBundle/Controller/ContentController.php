@@ -2,6 +2,7 @@
 
 namespace ihate\ClientBundle\Controller;
 
+use ihate\CoreBundle\Form\Type\PostType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ihate\CoreBundle\Controller\AdvancedController;
@@ -30,16 +31,40 @@ class ContentController extends AdvancedController
 
     /**
      * @Route ("/search", name="search")
-     * @Template("ihateClientBundle:Client:search.html.twig")
+     * @Template("ihateClientBundle:Content:search.html.twig")
      */
     public function searchAction(Request $request)
     {
         $search = $this->get('request')->request->get('search');
-        $userRepository = $this->getUserRepository();
-        $result = $userRepository->search($search);
-        return array(
-            'search' => $search,
-            'result' => $result
-        );
+        if($search != NULL){
+            $userRepository = $this->getUserRepository();
+            $result = $userRepository->search($search);
+            return array(
+                'search' => $search,
+                'result' => $result
+            );
+        }
+        else{
+            return array(
+                'search' => $search,
+                'result' => ''
+            );
+        }
+    }
+    /**
+     * @Route ("/newhate", name="newhate")
+     * @Template("ihateClientBundle:Content:newhate.html.twig")
+     */
+    public function newhateAction(Request $request)
+    {
+        $form = $this->createForm(new PostType(), new Post());
+        if($request->isMethod('POST')){
+            $form->submit($request);
+        }
+        if($form->isValid()) {
+            $data = $form->getData();
+
+
+        }
     }
 }

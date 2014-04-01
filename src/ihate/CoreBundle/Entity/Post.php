@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Post
  *
- * @ORM\Table(name="post", uniqueConstraints={@ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"}), @ORM\UniqueConstraint(name="user_id_UNIQUE", columns={"user_id"})}, indexes={@ORM\Index(name="category_id", columns={"category_id"})})
+ * @ORM\Table(name="post", uniqueConstraints={@ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"}), @ORM\UniqueConstraint(name="user_id_UNIQUE", columns={"user_id"})})})
  * @ORM\Entity
  */
 class Post
@@ -31,7 +31,7 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="embed", type="string", length=45, nullable=true)
+     * @ORM\Column(name="embed", type="string", length=255, nullable=true)
      */
     private $embed;
 
@@ -50,7 +50,7 @@ class Post
     private $createdAt;
 
     /**
-     * @var \User
+     * @var User
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
@@ -58,18 +58,6 @@ class Post
      * })
      */
     private $user;
-
-    /**
-     * @var \Category
-     *
-     * @ORM\ManyToOne(targetEntity="Category")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     * })
-     */
-    private $category;
-
-
 
     /**
      * Get id
@@ -194,28 +182,5 @@ class Post
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set category
-     *
-     * @param \ihate\CoreBundle\Entity\Category $category
-     * @return Post
-     */
-    public function setCategory(\ihate\CoreBundle\Entity\Category $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \ihate\CoreBundle\Entity\Category 
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 }
