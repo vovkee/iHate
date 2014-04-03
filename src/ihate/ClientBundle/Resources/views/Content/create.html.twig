@@ -1,0 +1,8 @@
+{% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
+
+{% block content %}
+<form action="{{ path('create') }}" {{ form_enctype(form) }}  method="POST">
+    {{ form(form) }}
+    {{ form_rest(form) }}
+</form>
+{% endblock content %}

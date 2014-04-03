@@ -3,6 +3,7 @@
 namespace ihate\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use ihate\CoreBundle\Entity\User;
 
 /**
  * UserRepository

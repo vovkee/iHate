@@ -22,7 +22,9 @@ class UserType extends AbstractType
                 'empty_value' => 'Select your gender',
                 'empty_data'  => null
             ))
-            ->add('country')
+            ->add('country', null, array(
+                'empty_value' => 'Select your country'
+            ))
             ->add('password', 'repeated', array(
                 'type' => 'password',
                 'invalid_message' => 'The password fields must match.',

@@ -22,35 +22,35 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=false)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="surname", type="string", length=45, nullable=false)
      */
-    private $surname;
+    protected $surname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=45, nullable=false)
      */
-    private $email;
+    protected $email;
 
     /**
      * @var string
      * @ORM\Column(name="gender", type="string", length=1, nullable=false)
      *
      */
-    private $gender;
+    protected $gender;
 
     /**
      * @var string
@@ -62,13 +62,13 @@ class User implements UserInterface
      *      minMessage = "Your password must be at least {{ limit }} characters length",
      *      maxMessage = "Your password cannot be longer than {{ limit }} characters length")
      */
-    private $password;
+    protected $password;
     /**
      * @var string
      *
      * @ORM\Column(name="salt", type="string", length=32, nullable=false)
      */
-    private $salt;
+    protected $salt;
 
     /**
      * @var Country
@@ -77,7 +77,7 @@ class User implements UserInterface
      *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
      */
-    private $country;
+    protected $country;
 
 
     /**
@@ -87,12 +87,17 @@ class User implements UserInterface
      *      inverseJoinColumns={@ORM\JoinColumn(name="following_id", referencedColumnName="id")}
      * )
      */
-    private $follows;
+    protected $follows;
 
     public function __construct()
     {
         $this->initSalt();
         $this->follows = new ArrayCollection();
+    }
+
+    public function __sleep()
+    {
+        return array('id');
     }
 
     /**

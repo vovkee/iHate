@@ -26,4 +26,12 @@ class AdvancedController extends Controller
         return $this->getDoctrine()->getManager()
             ->getRepository('ihateCoreBundle:User');
     }
+    /**
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getPostRepository()
+    {
+        return $this->getDoctrine()->getManager()
+            ->getRepository('ihateCoreBundle:Post');
+    }
 }

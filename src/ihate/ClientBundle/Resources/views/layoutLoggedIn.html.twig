@@ -15,14 +15,22 @@
     {{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
     <div class="content">
          <div class="container-fluid">
-            {% block content %}
-            {% endblock content %}
+             <div class="row">
+                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+                     {{ include('ihateClientBundle:PageStructure:sideMenuIn.html.twig') }}
+                 </div>
+                 <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                    {% block content %}
+                    {% endblock content %}
+                 </div>
+            </div>
          </div>
     </div>
 
     {% javascripts
     '@ihateClientBundle/Resources/public/js/jquery.js'
     '@ihateClientBundle/Resources/public/js/bootstrap.js'
+    '@ihateClientBundle/Resources/public/js/holder.js'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}

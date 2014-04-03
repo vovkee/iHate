@@ -12,7 +12,10 @@ class PostType extends AbstractType
         $builder
             ->add('text')
             ->add('embed')
-            ->add('image');
+            ->add('file')
+            ->add('Ok', 'submit', array(
+            'attr' => array('class' => 'btn btn-primary')
+        ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
