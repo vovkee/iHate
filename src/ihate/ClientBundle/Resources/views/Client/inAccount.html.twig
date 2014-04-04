@@ -2,6 +2,18 @@
 
 {% block content %}
             <div class="well">
-                <h1>PLACE FOR POSTS</h1>
+                {% for post in posts %}
+                    <div class="post">
+                        {% if post.path %}
+                            <div class="imageContainer">
+                            <img src="/uploads/avatar/{{ post.path }}"/>
+                            </div>
+                        {% endif %}
+                        {% if post.embed %}
+                            FTw EMBED!!??
+                        {% endif %}
+                        <h1>{{ post.text }}</h1>
+                    </div>
+                {% endfor %}
             </div>
 {% endblock content %}

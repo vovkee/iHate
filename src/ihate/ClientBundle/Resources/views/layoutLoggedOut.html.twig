@@ -7,11 +7,11 @@
         '@ihateClientBundle/Resources/public/css/signin.css'
         '@ihateClientBundle/Resources/public/css/custom.css'
         %}
-        <link rel="stylesheet" href="{{ asset_url }}"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
         {% endstylesheets %}
     </head>
     <body>
-        {{ include('ihateClientBundle:PageStructure:navbarOut.html.twig') }}
+    <!-- {{ include('ihateClientBundle:PageStructure:navbarOut.html.twig') }}-->
         {% block content %}
         {% endblock content %}
 

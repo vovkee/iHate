@@ -1,8 +1,25 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 
 {% block content %}
-<form action="{{ path('create') }}" {{ form_enctype(form) }}  method="POST">
-    {{ form(form) }}
-    {{ form_rest(form) }}
-</form>
+    <div class="well">
+        <form action="{{ path('create') }}" {{ form_enctype(form) }}  method="POST">
+
+            {{ form_label(form.file) }}
+            <ul class="error">{{ form_errors(form.file) }}</ul>
+            {{ form_widget(form.file, {'attr': {'class':'form-control input-md' }}) }}
+            <br>
+
+            {{ form_label(form.embed) }}
+            <ul class="error">{{ form_errors(form.embed) }}</ul>
+            {{ form_widget(form.embed, {'attr': {'class':'form-control input-md','placeholder':'Enter embed from youtube here'} }) }}
+            <br>
+
+            {{ form_label(form.text) }}
+            <ul class="error">{{ form_errors(form.text) }}</ul>
+            {{ form_widget(form.text, {'attr': {'class':'form-control input-md','placeholder':'Enter text here'} }) }}
+            <br>
+            {{ form(form) }}
+            {{ form_rest(form) }}
+        </form>
+    </div>
 {% endblock content %}

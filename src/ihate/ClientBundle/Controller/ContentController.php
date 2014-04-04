@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use ihate\CoreBundle\Controller\AdvancedController;
 use Symfony\Component\Security\Core\SecurityContext;
 use ihate\CoreBundle\Form\Type\PostType;
+use ihate\CoreBundle\Form\Type\UserType;
 use ihate\CoreBundle\Entity\User;
 use ihate\CoreBundle\Entity\Post;
 
@@ -27,12 +28,14 @@ class ContentController extends AdvancedController
     {
         $user = $this->get('security.context')->getToken()->getUser();
         $name = $user->getName();
-        $postRepository = $this->getPostRepository();
-        $post = $postRepository->showPost($user);
-     //   $session = $request->getSession();
-      //  $posts = $session->get('posts_history', array());
-      //  $post = array()
-        return array('name' => $name);
+        $surname = $user->getSurname();
+        $repository = $this->getPostRepository();
+        $posts = $repository->showPost($user);
+        return array(
+            'name'      => $name,
+            'surname'   =>$surname,
+            'posts'     => $posts
+        );
     }
 
     /**
@@ -81,5 +84,40 @@ class ContentController extends AdvancedController
             return $this->render('ihateClientBundle:Content:create.html.twig', array(
                     'form' => $form->createView())
             );
+    }
+
+    /**
+     * @Route ("/edit", name="edit")
+     * @Template()
+     */
+    public function profileAction()
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        $entity = $this->getUserRepository()->find($user);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }
+
+        $form = $this->createForm(new UserType(), $entity);
+
+        $request = $this->get('request_stack')->getCurrentRequest();
+
+        if ($request->getMethod() === 'POST')
+        {
+            $form->submit($request);
+
+            if ($form->isValid()) {
+                $this->em()->persist($entity);
+                $this->em()->flush();
+
+                return $this->redirect($this->generateUrl('profile'));
+            }
+
+            $this->em()->refresh($user); // Add this line
+        }
+        return $this->render('ihateClientBundle:Client:edit.html.twig', array(
+            'entity'      => $entity,
+            'form'   => $form->createView(),
+        ));
     }
 }

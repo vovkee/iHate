@@ -1,16 +1,21 @@
 <div class="row">
-        <a href="#" class="thumbnail">
-            <img data-src="holder.js/150x150" alt="Place for avatar">
-        </a>
+    <a href="#" class="thumbnail">
+        <img data-src="holder.js/150x150" alt="Place for avatar">
+    </a>
 </div>
 <div class="row">
-        <div class="main-content">
-            <p>Hello ,{{ app.user.name }}</p>
-            <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#">Profile</a></li>
-                <li><a href="{{ path('create') }}">Create new Hate</a></li>
-                <li><a href="#">My Own Hates</a></li>
-                <li><a href="#">My Hate Mates</a></li>
-            </ul>
-        </div>
+    <div class="well main-content">
+        <h4>Hello ,<b>{{ app.user.name }} {{ app.user.surname }}</b></h4>
+    </div>
+</div>
+<div class="row">
+    <div class="main-content">
+
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">My Profile</a></li>
+            <li class="active"><a href="{{ path('create') }}">Create new Hate</a></li>
+            <li class="active"><a href="#">My Own Hates</a></li>
+            <li class="active"><a href="#">My Hate Mates</a></li>
+        </ul>
+    </div>
 </div>

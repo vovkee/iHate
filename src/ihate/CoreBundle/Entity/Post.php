@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Post
  *
- * @ORM\Table(name="post", uniqueConstraints={@ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"}), @ORM\UniqueConstraint(name="user_id_UNIQUE", columns={"user_id"})})})
+ * @ORM\Table(name="post", uniqueConstraints={@ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})} )
  * @ORM\Entity(repositoryClass="ihate\CoreBundle\Repository\PostRepository")
  * @ORM\HasLifecycleCallbacks()
  */
@@ -26,6 +26,7 @@ class Post
     private $id;
 
     /**
+     * @Assert\Image()
      * @Assert\File(maxSize="6000000")
      */
     private $file;

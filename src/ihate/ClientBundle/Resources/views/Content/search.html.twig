@@ -4,23 +4,25 @@
     <h1>THIS IS SEARCH PAGE!!!</h1>
     <h3>You searched for "{{ search }}"</h3>
     {% if result %}
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Surname</th>
-            </tr>
-            </thead>
-            {% for user in result %}
-                <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
-                    <td>{{ loop.index }}</td>
-                    <td class="name">{{ user.name }}</td>
-                    <td class="surname">{{ user.surname }}</td>
-                    <td><button type="button" class="btn btn-primary">Follow</button></td>
+        <div class="well">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Surname</th>
                 </tr>
-            {% endfor %}
-        </table>
+                </thead>
+                {% for user in result %}
+                    <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+                        <td>{{ loop.index }}</td>
+                        <td class="name">{{ user.name }}</td>
+                        <td class="surname">{{ user.surname }}</td>
+                        <td><a href="{{ path('edit') }}" type="button" class="btn btn-primary">Follow</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     {% else %}
         <h2>Sorry, there's no one here by that name</h2>
     {% endif %}

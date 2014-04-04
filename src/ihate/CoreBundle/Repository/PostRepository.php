@@ -4,6 +4,7 @@ namespace ihate\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use ihate\CoreBundle\Entity\User;
+use ihate\CoreBundle\Entity\Post;
 
 /**
  * PostRepository
