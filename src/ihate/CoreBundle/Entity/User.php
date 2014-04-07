@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  *
  * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"}), @ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})}, indexes={@ORM\Index(name="country", columns={"country_id"})})
  * @ORM\Entity(repositoryClass="ihate\CoreBundle\Repository\UserRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class User implements UserInterface
 {
@@ -70,7 +71,7 @@ class User implements UserInterface
      * @ORM\Column(name="password", type="string", length=255, nullable=false)
      * @Assert\Length(
      *      min = "3",
-     *      max = "45",
+     *      max = "255",
      *      minMessage = "Your password must be at least {{ limit }} characters length",
      *      maxMessage = "Your password cannot be longer than {{ limit }} characters length")
      */
@@ -86,7 +87,7 @@ class User implements UserInterface
      * @var Country
      * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id", nullable=false)
      * })
      */
     protected $country;
@@ -355,16 +356,23 @@ class User implements UserInterface
 
     protected function getUploadRootDir()
     {
-        // the absolute directory path where uploaded
-        // documents should be saved
         return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
     protected function getUploadDir()
     {
-        // get rid of the __DIR__ so it doesn't screw up
-        // when displaying uploaded doc/image in the view.
         return 'uploads/avatar';
+    }
+
+    public function showImage()
+    {
+        $path = $this->getWebPath();
+
+        if (!$path) {
+            $path = 'holder.js/150x150';
+        }
+
+        return $path;
     }
 
     /**
@@ -385,5 +393,23 @@ class User implements UserInterface
     public function getFile()
     {
         return $this->file;
+    }
+
+    public function upload()
+    {
+        if (null === $this->getFile()) {
+            return;
+        }
+
+        $fileName = $this->getId().'_avatar.'.$this->getFile()->guessExtension();;
+
+        $this->getFile()->move(
+            $this->getUploadRootDir(),
+            $fileName
+        );
+
+        $this->path = $fileName;
+
+        $this->file = null;
     }
 }

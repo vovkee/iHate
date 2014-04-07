@@ -1,5 +1,36 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 {% block content %}
-<h1>EDIT PAGE!!!</h1>
-{{ form(form) }}
+<div class="well">
+    <h1>EDIT PAGE!!!</h1>
+    <form action="{{ path('edit') }}" {{ form_enctype(form) }}  method="POST">
+
+        {{ form_label(form.file, 'Change your avatar') }}
+        <ul class="error">{{ form_errors(form.file) }}</ul>
+        {{ form_widget(form.file, {'attr': {'class':'form-control input-xs'} }) }}
+        <br>
+
+        {{ form_label(form.name) }}
+        <ul class="error">{{ form_errors(form.name) }}</ul>
+        {{ form_widget(form.name, {'attr': {'class':'form-control input-lg','placeholder':'Enter your name'} }) }}
+        <br>
+
+        {{ form_label(form.surname) }}
+        <ul class="error">{{ form_errors(form.surname) }}</ul>
+        {{ form_widget(form.surname, {'attr': {'class':'form-control input-lg','placeholder':'Enter your surname'} }) }}
+        <br>
+
+        {{ form_label(form.email) }}
+        <ul class="error">{{ form_errors(form.email) }}</ul>
+        {{ form_widget(form.email, {'attr': {'class':'form-control input-lg','placeholder':'Enter your email'} }) }}
+        <br>
+
+        {{ form_label(form.country) }}
+        <ul class="error">{{ form_errors(form.country) }}</ul>
+        {{ form_widget(form.country, {'attr': {'class':'form-control input-lg','placeholder':'Select your country'} }) }}
+        <br>
+
+        {{ form_widget(form.save, { 'label': 'Change' }) }}
+        {{ form_rest(form) }}
+    </form>
+</div>
 {% endblock content %}

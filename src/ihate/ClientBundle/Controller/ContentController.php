@@ -31,10 +31,13 @@ class ContentController extends AdvancedController
         $surname = $user->getSurname();
         $repository = $this->getPostRepository();
         $posts = $repository->showPost($user);
+        $path = $user->showImage();
+     //   var_dump($path);
         return array(
-            'name'      => $name,
-            'surname'   =>$surname,
-            'posts'     => $posts
+            'name'      =>  $name,
+            'surname'   =>  $surname,
+            'path'      =>  $path,
+            'posts'     =>  $posts
         );
     }
 
@@ -72,10 +75,10 @@ class ContentController extends AdvancedController
             $form->submit($request);
         }
         if($form->isValid()) {
-            $data = $form->getData();
             $post->setUser($this->getUser());
-            $post->upload();
             $this->em()->persist($post);
+            $this->em()->flush();
+            $post->upload();
             $this->em()->flush();
 
             $url = $this->generateUrl('inAccount');
@@ -92,16 +95,17 @@ class ContentController extends AdvancedController
      */
     public function profileAction()
     {
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user   = $this->get('security.context')->getToken()->getUser();
         $entity = $this->getUserRepository()->find($user);
+        $path   = $entity->showImage();
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
+        $type = new UserType(UserType::TYPE_EDIT);
 
-        $form = $this->createForm(new UserType(), $entity);
+        $form = $this->createForm($type, $entity);
 
         $request = $this->get('request_stack')->getCurrentRequest();
-
         if ($request->getMethod() === 'POST')
         {
             $form->submit($request);
@@ -109,15 +113,17 @@ class ContentController extends AdvancedController
             if ($form->isValid()) {
                 $this->em()->persist($entity);
                 $this->em()->flush();
+                $entity->upload();
+                $this->em()->flush();
 
-                return $this->redirect($this->generateUrl('profile'));
+                return $this->redirect($this->generateUrl('edit'));
+            } else {
+                var_dump($form->getErrors());
             }
-
-            $this->em()->refresh($user); // Add this line
         }
         return $this->render('ihateClientBundle:Client:edit.html.twig', array(
-            'entity'      => $entity,
-            'form'   => $form->createView(),
+            'entity'    => $entity,
+            'form'      => $form->createView(),
         ));
     }
 }

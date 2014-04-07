@@ -1,6 +1,7 @@
 <div class="row">
-    <a href="#" class="thumbnail">
-        <img data-src="holder.js/150x150" alt="Place for avatar">
+    <a href="{{ path('edit') }}" class="thumbnail">
+        <img src="{{ asset(app.user.showImage()) }}"/>
+        {# <img data-src="holder.js/150x150" alt="Place for avatar">#}
     </a>
 </div>
 <div class="row">
@@ -12,7 +13,7 @@
     <div class="main-content">
 
         <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#">My Profile</a></li>
+            <li class="active"><a href="{{ path('edit') }}">My Profile</a></li>
             <li class="active"><a href="{{ path('create') }}">Create new Hate</a></li>
             <li class="active"><a href="#">My Own Hates</a></li>
             <li class="active"><a href="#">My Hate Mates</a></li>

@@ -4,6 +4,7 @@ namespace ihate\ClientBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use ihate\CoreBundle\Controller\AdvancedController;
 use ihate\CoreBundle\Entity\User;
+use ihate\CoreBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Response;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -69,6 +70,7 @@ class ClientController extends AdvancedController
                 ->setSurname($data->getUser()->getSurname())
                 ->setEmail($data->getUser()->getEmail())
                 ->setGender($data->getUser()->getGender())
+                ->setCountry($data->getUser()->getCountry($user))
                 ->setPassword($this->encodePassword($user, $data->getUser()->getPassword()));
 
             $this->em()->persist($user);

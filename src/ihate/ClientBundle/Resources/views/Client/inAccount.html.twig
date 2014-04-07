@@ -6,7 +6,7 @@
                     <div class="post">
                         {% if post.path %}
                             <div class="imageContainer">
-                            <img src="/uploads/avatar/{{ post.path }}"/>
+                                <img src="{{ asset(post.showImage()) }}"/>
                             </div>
                         {% endif %}
                         {% if post.embed %}
