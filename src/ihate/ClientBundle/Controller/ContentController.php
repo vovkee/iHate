@@ -97,7 +97,6 @@ class ContentController extends AdvancedController
     {
         $user   = $this->get('security.context')->getToken()->getUser();
         $entity = $this->getUserRepository()->find($user);
-        $path   = $entity->showImage();
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
@@ -125,5 +124,12 @@ class ContentController extends AdvancedController
             'entity'    => $entity,
             'form'      => $form->createView(),
         ));
+    }
+    /**
+     * @Route ("/follow", name="follow")
+     */
+    public function followAction($id)
+    {
+
     }
 }

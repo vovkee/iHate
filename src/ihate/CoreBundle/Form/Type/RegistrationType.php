@@ -15,7 +15,7 @@ class RegistrationType extends AbstractType
             array('property_path' => 'termsAccepted')
         );
         $builder->add('Sign up for iHate', 'submit', array(
-            'attr' => array('class' => 'btn btn-lg btn-primary btn-block')
+            'attr' => array('class' => 'btn btn-primary')
         ));
     }
 

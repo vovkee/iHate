@@ -28,7 +28,7 @@ class UserType extends AbstractType
 
         if ($this->type == self::TYPE_EDIT) {
             $builder->add('save', 'submit', array(
-                'attr' => array('class' => 'btn btn-lg btn-primary btn-block')))
+                'attr' => array('class' => 'btn btn-primary')))
                 ->add('file');
 
         } else if ($this->type == self::TYPE_REGISTRATION) {

@@ -18,7 +18,7 @@
                         <td>{{ loop.index }}</td>
                         <td class="name">{{ user.name }}</td>
                         <td class="surname">{{ user.surname }}</td>
-                        <td><a type="button" class="btn btn-primary">Follow</a></td>
+                        <td><a href="{{ path('follow') }}" type="button" class="btn btn-primary">Follow</a></td>
                     </tr>
                 {% endfor %}
             </table>
@@ -26,5 +26,4 @@
     {% else %}
         <h2>Sorry, there's no one here by that name</h2>
     {% endif %}
-
 {% endblock content %}
