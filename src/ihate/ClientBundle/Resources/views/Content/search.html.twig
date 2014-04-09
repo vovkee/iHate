@@ -1,29 +1,34 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 
 {% block content %}
-    <h1>THIS IS SEARCH PAGE!!!</h1>
-    <h3>You searched for "{{ search }}"</h3>
-    {% if result %}
-        <div class="well">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Surname</th>
-                </tr>
-                </thead>
-                {% for user in result %}
-                    <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
-                        <td>{{ loop.index }}</td>
-                        <td class="name">{{ user.name }}</td>
-                        <td class="surname">{{ user.surname }}</td>
-                        <td><a href="{{ path('follow') }}" type="button" class="btn btn-primary">Follow</a></td>
+    <div class="well">
+        <h3>You searched for "{{ search }}"</h3>
+        {% if users %}
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Surname</th>
                     </tr>
-                {% endfor %}
-            </table>
-        </div>
-    {% else %}
-        <h2>Sorry, there's no one here by that name</h2>
-    {% endif %}
+                    </thead>
+                    {% for user in users %}
+                        <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+                            <td>{{ loop.index }}</td>
+                            <td class="name">{{ user.name }}</td>
+                            <td class="surname">{{ user.surname }}</td>
+                            <td>
+                                {% if app.user.isFollowed(user) %}
+                                    <a href="{{ path('unfollow', { 'id': user.id }) }}" type="button" class="btn btn-primary btn-sm">Unfollow</a>
+                                {% else %}
+                                    <a href="{{ path('follow', { 'id': user.id }) }}" type="button" class="btn btn-success btn-sm">Follow</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+        {% else %}
+                <h2>Sorry, there's no one here by that name</h2>
+        {% endif %}
+    </div>
 {% endblock content %}

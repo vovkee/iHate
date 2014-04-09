@@ -20,13 +20,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class ContentController extends AdvancedController
 {
+
     /**
      * @Route("/", name="inAccount")
      * @Template("ihateClientBundle:Client:inAccount.html.twig")
      */
     public function homeAction(Request $request)
     {
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->getUser();
         $name = $user->getName();
         $surname = $user->getSurname();
         $repository = $this->getPostRepository();
@@ -47,22 +48,67 @@ class ContentController extends AdvancedController
      */
     public function searchAction(Request $request)
     {
-        $search = $this->get('request')->request->get('search');
+        $search = $request->get('search', '');
+        $user   = $this->getUser();
         if($search != NULL){
             $userRepository = $this->getUserRepository();
-            $result = $userRepository->search($search);
+            $users = $userRepository->search($search, $user);
             return array(
-                'search' => $search,
-                'result' => $result
+                'search'    => $search,
+                'users'     => $users
             );
         }
         else{
             return array(
                 'search' => $search,
-                'result' => ''
+                'users' => ''
             );
         }
     }
+
+    /**
+     * @Route ("/follow/{id}", name="follow")
+     * @Template()
+     */
+    public function followAction(Request $request, $id)
+    {
+        /**
+         * @var User $follower
+         */
+        $follower   = $this->getUser();
+        /**
+         * @var User $following
+         */
+        $following  = $this->getUserRepository()
+            ->find($id);
+
+        if (!$following) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $this->getUserManager()->connect($follower, $following);
+        return $this->refresh($request);
+    }
+    /**
+     * @Route ("/unfollow/{id}", name="unfollow")
+     */
+    public function unfollowAction(Request $request, $id)
+    {
+        /**
+         * @var User $follower
+         */
+        $follower   = $this->getUser();
+        /**
+         * @var User $following
+         */
+        $following  = $this->getUserRepository()
+            ->find($id);
+        $this->getUserManager()->followRemove($follower, $following);
+        return $this->refresh($request);
+    }
+
     /**
      * @Route ("/create", name="create")
      * @Template()
@@ -95,7 +141,7 @@ class ContentController extends AdvancedController
      */
     public function profileAction()
     {
-        $user   = $this->get('security.context')->getToken()->getUser();
+        $user   = $this->getUser();
         $entity = $this->getUserRepository()->find($user);
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
@@ -125,11 +171,10 @@ class ContentController extends AdvancedController
             'form'      => $form->createView(),
         ));
     }
-    /**
-     * @Route ("/follow", name="follow")
-     */
-    public function followAction($id)
-    {
 
+    private function refresh(Request $request)
+    {
+        $url = $request->server->get('HTTP_REFERER', false);
+        return $this->redirect($url?$url:$this->generateUrl('inAccount'));
     }
 }

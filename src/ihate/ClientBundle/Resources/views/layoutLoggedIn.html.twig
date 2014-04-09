@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
-    {% stylesheets
-    '@ihateClientBundle/Resources/public/css/bootstrap.css'
-    '@ihateClientBundle/Resources/public/css/custom.css'
-    '@ihateClientBundle/Resources/public/css/dashboard.css'
-    %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>iHate</title>
+        {% stylesheets
+        '@ihateClientBundle/Resources/public/css/bootstrap.css'
+        '@ihateClientBundle/Resources/public/css/custom.css'
+        '@ihateClientBundle/Resources/public/css/dashboard.css'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Balthazar' rel='stylesheet' type='text/css'>
+        {% endstylesheets %}
+    </head>
+    <body>
 
-    {{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
-    <div class="content">
-         <div class="container-fluid">
-             <div class="row">
-                 <div class="col-xs-12 col-sm-12 col-md-9 col-md-offset-1">
-                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                         {{ include('ihateClientBundle:PageStructure:sideMenuIn.html.twig') }}
+        {{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
+        <div class="content">
+             <div class="container-fluid">
+                 <div class="row">
+                     <div class="col-xs-12 col-sm-9 col-md-9 col-md-offset-1 col-lg-12 col-md-offset-1">
+                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2">
+                             {{ include('ihateClientBundle:PageStructure:sideMenuIn.html.twig') }}
+                         </div>
+                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+                            {% block content %}
+                            {% endblock content %}
+                         </div>
                      </div>
-                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-                        {% block content %}
-                        {% endblock content %}
-                     </div>
-                 </div>
-            </div>
-         </div>
-    </div>
+                </div>
+             </div>
+        </div>
 
-    {% javascripts
-    '@ihateClientBundle/Resources/public/js/jquery.js'
-    '@ihateClientBundle/Resources/public/js/bootstrap.js'
-    '@ihateClientBundle/Resources/public/js/holder.js'
-    %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+        {% javascripts
+        '@ihateClientBundle/Resources/public/js/jquery.js'
+        '@ihateClientBundle/Resources/public/js/bootstrap.js'
+        '@ihateClientBundle/Resources/public/js/holder.js'
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-</body>
+    </body>
 </html>

@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new ihate\CoreBundle\ihateCoreBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new ihate\ClientBundle\ihateClientBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new JMS\AopBundle\JMSAopBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

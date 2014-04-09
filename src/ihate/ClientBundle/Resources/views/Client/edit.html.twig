@@ -1,7 +1,6 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 {% block content %}
 <div class="well">
-    <h1>EDIT PAGE!!!</h1>
     <form action="{{ path('edit') }}" {{ form_enctype(form) }}  method="POST">
 
         {{ form_label(form.file, 'Change your avatar') }}
@@ -27,6 +26,11 @@
         {{ form_label(form.country) }}
         <ul class="error">{{ form_errors(form.country) }}</ul>
         {{ form_widget(form.country, {'attr': {'class':'form-control input-lg','placeholder':'Select your country'} }) }}
+        <br>
+
+        {{ form_label(form.about) }}
+        <ul class="error">{{ form_errors(form.about) }}</ul>
+        {{ form_widget(form.about, {'attr': {'class':'form-control input-lg','placeholder':'Write something about you.'} }) }}
         <br>
 
         {{ form_widget(form.save, { 'label': 'Change' }) }}

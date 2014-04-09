@@ -76,6 +76,12 @@ class User implements UserInterface
      *      maxMessage = "Your password cannot be longer than {{ limit }} characters length")
      */
     protected $password;
+
+    /**
+     * @var string
+     * @ORM\Column(name="about", type="string", length=255, nullable=true)
+     */
+    protected $about;
     /**
      * @var string
      *
@@ -94,13 +100,18 @@ class User implements UserInterface
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="following")
      * @ORM\JoinTable(name="follow",
      *      joinColumns={@ORM\JoinColumn(name="follower_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="following_id", referencedColumnName="id")}
      * )
      */
     protected $follows;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="follows")
+     */
+    protected $following;
 
     public function __construct()
     {
@@ -308,6 +319,17 @@ class User implements UserInterface
         return $this;
     }
 
+    public function isFollowed(User $user)
+    {
+        foreach ($this->follows as $follow) {
+            if ($follow == $user) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Add follows
      *
@@ -411,5 +433,84 @@ class User implements UserInterface
         $this->path = $fileName;
 
         $this->file = null;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return User
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * Add following
+     *
+     * @param \ihate\CoreBundle\Entity\User $following
+     * @return User
+     */
+    public function addFollowing(\ihate\CoreBundle\Entity\User $following)
+    {
+        $this->following[] = $following;
+
+        return $this;
+    }
+
+    /**
+     * Remove following
+     *
+     * @param \ihate\CoreBundle\Entity\User $following
+     */
+    public function removeFollowing(\ihate\CoreBundle\Entity\User $following)
+    {
+        $this->following->removeElement($following);
+    }
+
+    /**
+     * Get following
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFollowing()
+    {
+        return $this->following;
+    }
+
+    /**
+     * Set about
+     *
+     * @param string $about
+     * @return User
+     */
+    public function setAbout($about)
+    {
+        $this->about = $about;
+
+        return $this;
+    }
+
+    /**
+     * Get about
+     *
+     * @return string 
+     */
+    public function getAbout()
+    {
+        return $this->about;
     }
 }

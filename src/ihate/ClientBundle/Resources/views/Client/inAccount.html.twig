@@ -1,19 +1,40 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 
 {% block content %}
-            <div class="well">
-                {% for post in posts %}
-                    <div class="post">
-                        {% if post.path %}
-                            <div class="imageContainer">
-                                <img src="{{ asset(post.showImage()) }}"/>
-                            </div>
-                        {% endif %}
-                        {% if post.embed %}
-                            FTw EMBED!!??
-                        {% endif %}
-                        <h1>{{ post.text }}</h1>
-                    </div>
-                {% endfor %}
-            </div>
+        {% for post in posts %}
+                <div class="well">
+                    {% if posts %}
+                        <div class="row">
+                                <div class="owner">
+                                    <img class="ownerImage" src="{{ asset(app.user.showImage()) }}"/>
+                                </div>
+                                <time datetime="{{ post.createdAt|date('c') }}"><i>Created at {{ post.createdAt | timeAgo }}</i></time>
+                        </div>
+                        <div class="row">
+                                <div class="post">
+                                    {% if post.path %}
+                                        <div class="imageContainer">
+                                            <img src="{{ asset(post.showImage()) }}"/>
+                                        </div>
+                                    {% endif %}
+                                    {% if post.embed %}
+                                        <div class="embed">
+
+                                        </div>
+                                    {% endif %}
+                                        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-12">
+                                            <h3 class="postText">{{ post.text }}</h3>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="row">
+                                <div class="comment">
+                                    <h2>PLACEHOLDER FOR COMMENTS</h2>
+                                </div>
+                        </div><br>
+                    {% else %}
+                        <p class="text">Your timeline is currently empty. Follow people and create new topics to share your hates with them!.</p>
+                    {% endif %}
+                </div>
+        {% endfor %}
 {% endblock content %}

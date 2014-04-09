@@ -4,6 +4,7 @@ namespace ihate\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use ihate\CoreBundle\Entity\User;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * UserRepository
@@ -15,14 +16,29 @@ class UserRepository extends EntityRepository
 {
     /**
      * @param $needle
+     * @param \ihate\CoreBundle\Entity\User $user
      * @return array
      */
-    public function search($needle)
+    public function search($needle, User $user)
     {
         return $this->createQueryBuilder('u')
             ->where('u.name LIKE :needle')
-            ->setParameter('needle', '%'.$needle.'%')
+            ->andWhere('u.id != :id')
+            ->setParameters(array(
+                'needle' => '%'.$needle.'%',
+                'id' => $user->getId(),
+            ))
             ->getQuery()
             ->getResult();
+    }
+
+    public function getListPaginator($first, $max)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setFirstResult($first)
+            ->setMaxResults($max);
+
+        return new Paginator($qb->getQuery());
     }
 }

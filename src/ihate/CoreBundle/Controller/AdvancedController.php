@@ -2,6 +2,7 @@
 namespace ihate\CoreBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
+use ihate\CoreBundle\Manager\UserManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
@@ -33,5 +34,13 @@ class AdvancedController extends Controller
     {
         return $this->getDoctrine()->getManager()
             ->getRepository('ihateCoreBundle:Post');
+    }
+
+    /**
+     * @return UserManager
+     */
+    public function getUserManager()
+    {
+        return $this->get('ihate.manager.user');
     }
 }
