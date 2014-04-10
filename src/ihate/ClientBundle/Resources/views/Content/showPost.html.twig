@@ -1,0 +1,37 @@
+{% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
+
+{% block content %}
+    <div class="well">
+        <div class="post">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
+                    <img class="ownerImage" src="{{ asset(app.user.showImage()) }}"/>
+                </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-10">
+                    <time datetime="{{ post.createdAt|date('c') }}"><i>Created {{ post.createdAt | timeAgo }}</i></time>
+                    <br>
+                    <p>
+                        <i>By <b>{{ app.user.name }} {{ app.user.surname }}</b></i>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="imageContainer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    {% if post.path %}
+                        <img src="{{ asset(post.showImage()) }}"/>
+                    {% endif %}
+
+                    {% if post.embed %}
+                    {% endif %}
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p class="postText">{{ post.text }}</p>
+                    <button type="button" class="btn btn-danger btn-lg">
+                        <span class="glyphicon glyphicon-fire"></span> ihate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

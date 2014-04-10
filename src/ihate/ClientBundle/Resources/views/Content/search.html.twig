@@ -19,9 +19,10 @@
                             <td class="surname">{{ user.surname }}</td>
                             <td>
                                 {% if app.user.isFollowed(user) %}
-                                    <a href="{{ path('unfollow', { 'id': user.id }) }}" type="button" class="btn btn-primary btn-sm">Unfollow</a>
+                                    <a href="{{ path('unfollow', { 'id': user.id }) }}" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-minus"></span> Remove</a>
+
                                 {% else %}
-                                    <a href="{{ path('follow', { 'id': user.id }) }}" type="button" class="btn btn-success btn-sm">Follow</a>
+                                    <a href="{{ path('follow', { 'id': user.id }) }}" type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span> Add</a>
                                 {% endif %}
                             </td>
                         </tr>

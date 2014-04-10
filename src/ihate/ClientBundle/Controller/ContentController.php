@@ -33,12 +33,24 @@ class ContentController extends AdvancedController
         $repository = $this->getPostRepository();
         $posts = $repository->showPost($user);
         $path = $user->showImage();
-     //   var_dump($path);
         return array(
             'name'      =>  $name,
             'surname'   =>  $surname,
             'path'      =>  $path,
             'posts'     =>  $posts
+        );
+    }
+
+    /**
+     * @Route("/post/{id}", name="showPost")
+     * @Template("ihateClientBundle:Content:showPost.html.twig")
+     */
+    public function showPost($id)
+    {
+        $repository = $this->getPostRepository();
+        $post = $repository->findOneById($id);
+        return array(
+            'post'  =>  $post
         );
     }
 
