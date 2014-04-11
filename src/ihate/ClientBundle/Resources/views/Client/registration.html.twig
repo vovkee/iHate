@@ -8,7 +8,7 @@
             <div class="col-md-8 col-lg-offset-2">
                 <div class="regForms">
                     <div class="well">
-                        <form action="{{ path('account_create') }}" {{ form_enctype(form) }}  method="POST">
+                        <form action="{{ path('registration') }}" {{ form_enctype(form) }}  method="POST">
 
                             {{ form_label(form.user.name) }}
                             <ul class="error">{{ form_errors(form.user.name) }}</ul>

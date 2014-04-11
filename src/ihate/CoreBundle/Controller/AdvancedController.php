@@ -43,4 +43,13 @@ class AdvancedController extends Controller
     {
         return $this->get('ihate.manager.user');
     }
+
+    /**
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getCommentRepository()
+    {
+        return $this->getDoctrine()->getManager()
+            ->getRepository('ihateCoreBundle:Comment');
+    }
 }

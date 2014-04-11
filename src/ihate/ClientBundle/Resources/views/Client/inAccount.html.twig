@@ -3,9 +3,7 @@
 {% block content %}
     {% if posts %}
         {% for post in posts %}
-                <div class="well">
-                        {% include "ihateClientBundle:PageStructure:postContent.html.twig" %}
-                </div>
+            {% include "ihateClientBundle:Content:postContent.html.twig" %}
         {% endfor %}
     {% else %}
         <div class="well">

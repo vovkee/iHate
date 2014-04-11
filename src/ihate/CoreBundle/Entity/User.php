@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  *
  * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"}), @ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})}, indexes={@ORM\Index(name="country", columns={"country_id"})})
  * @ORM\Entity(repositoryClass="ihate\CoreBundle\Repository\UserRepository")
- * @ORM\HasLifecycleCallbacks
  */
 class User implements UserInterface
 {
@@ -42,8 +41,10 @@ class User implements UserInterface
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="email", type="string", length=45, nullable=false)
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.")
      */
     protected $email;
 
@@ -79,7 +80,7 @@ class User implements UserInterface
 
     /**
      * @var string
-     * @ORM\Column(name="about", type="string", length=255, nullable=true)
+     * @ORM\Column(name="about", type="text", nullable=true)
      */
     protected $about;
     /**

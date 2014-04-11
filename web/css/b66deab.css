@@ -5874,9 +5874,45 @@ body{
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
-.post{
-
+.line-1 {
+    width:100%;
+    border-top: 1px solid #D0D0D0;
+    border-bottom: 1px solid #fff;
+    height: 0px;
 }
+.line-2 {
+    margin-top: 15px;
+    width:100%;
+    border-top: 1px solid #D0D0D0;
+    border-bottom: 1px solid #fff;
+    height: 0px;
+}
+.comment{
+    margin-top: -22px;
+    background: url('../images/k3.jpg') repeat;
+    padding-top:10px;
+    padding-left:10px;
+    padding-bottom: 10px;
+}
+.postBottom{
+    margin-top: -25px;
+    background: url('../images/k3.jpg') repeat;
+    padding-left:10px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #333;
+}
+
+.link{
+    color: #ffff00;
+}
+.postTop{
+    padding-top: 10px;
+    border-top: 1px solid #555;
+    margin-bottom: -20px;
+}
+
+
 /*
  * Base structure
  */

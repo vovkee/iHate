@@ -51,10 +51,10 @@ class ClientController extends AdvancedController
     }
 
     /**
-     * @Route("/register", name="account_create")
+     * @Route("/registration", name="registration")
      * @Template()
      */
-    public function createAction(Request $request)
+    public function registrationAction(Request $request)
     {
         $form = $this->createForm(new RegistrationType(), new Registration());
         if($request->isMethod('POST')){
@@ -81,7 +81,7 @@ class ClientController extends AdvancedController
         }
 
 
-        return $this->render('ihateClientBundle:Client:register.html.twig', array(
+        return $this->render('ihateClientBundle:Client:registration.html.twig', array(
                 'form' => $form->createView())
         );
     }

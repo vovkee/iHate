@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * Comment
  *
  * @ORM\Table(name="comment", indexes={@ORM\Index(name="post_id", columns={"post_id"}), @ORM\Index(name="user_id", columns={"user_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ihate\CoreBundle\Repository\CommentRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Comment
 {
@@ -36,7 +37,7 @@ class Comment
     private $createdAt;
 
     /**
-     * @var \Post
+     * @var Post
      *
      * @ORM\ManyToOne(targetEntity="Post")
      * @ORM\JoinColumns({
@@ -46,7 +47,7 @@ class Comment
     private $post;
 
     /**
-     * @var \User
+     * @var User
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
@@ -92,7 +93,7 @@ class Comment
 
     /**
      * Set createdAt
-     *
+     * @ORM\PrePersist
      * @param \DateTime $createdAt
      * @return Comment
      */
@@ -111,6 +112,14 @@ class Comment
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->createdAt = new \DateTime();
     }
 
     /**

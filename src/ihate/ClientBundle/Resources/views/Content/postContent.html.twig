@@ -1,0 +1,23 @@
+<div class="well">
+    <div class="postTop">
+        {{ include('ihateClientBundle:Content:postTop.html.twig', { "post": post }) }}
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p class="postText">{{ post.text|truncate(255) }}</p>
+            </div>
+        </div>
+    </div><br>
+</div>
+<div class="postBottom">
+    {% if post.text|length > 255 %}
+        <a class="link" href="{{ path('showPost', { 'id': post.id }) }}">Continue reading...</a>
+    {% else %}
+        <a  href="{{ path('showPost', { 'id': post.id }) }}" type="button" class="btn-group-default btn-xs link">
+            <span class="glyphicon glyphicon-comment"></span> Comment
+        </a>
+    {% endif %}
+    <button type="button" class="btn btn-danger btn-xs">
+        <span class="glyphicon glyphicon-fire"></span> ihate
+    </button>
+</div><br><br>
+

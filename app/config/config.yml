@@ -73,3 +73,9 @@ jms_di_extra:
         all_bundles: false
         bundles: [ihateCoreBundle]
         directories: ["%kernel.root_dir%/../src"]
+
+services:
+ twig.extension.text:
+     class: Twig_Extensions_Extension_Text
+     tags:
+         - { name: twig.extension }

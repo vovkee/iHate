@@ -1,7 +1,7 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 {% block content %}
 <div class="well">
-    <form action="{{ path('edit') }}" {{ form_enctype(form) }}  method="POST">
+    <form action="{{ path('edit') }}" {{ form_enctype(form) }}  method="POST" novalidate="novalidate">
 
         {{ form_label(form.file, 'Change your avatar') }}
         <ul class="error">{{ form_errors(form.file) }}</ul>

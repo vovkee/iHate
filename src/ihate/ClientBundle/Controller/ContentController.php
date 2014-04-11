@@ -42,19 +42,6 @@ class ContentController extends AdvancedController
     }
 
     /**
-     * @Route("/post/{id}", name="showPost")
-     * @Template("ihateClientBundle:Content:showPost.html.twig")
-     */
-    public function showPost($id)
-    {
-        $repository = $this->getPostRepository();
-        $post = $repository->findOneById($id);
-        return array(
-            'post'  =>  $post
-        );
-    }
-
-    /**
      * @Route ("/search", name="search")
      * @Template("ihateClientBundle:Content:search.html.twig")
      */
@@ -73,7 +60,7 @@ class ContentController extends AdvancedController
         else{
             return array(
                 'search' => $search,
-                'users' => ''
+                'users'  => ''
             );
         }
     }
@@ -121,31 +108,7 @@ class ContentController extends AdvancedController
         return $this->refresh($request);
     }
 
-    /**
-     * @Route ("/create", name="create")
-     * @Template()
-     */
-    public function createAction(Request $request)
-    {
-        $post = new Post();
-        $form = $this->createForm(new PostType(), $post);
-        if($request->isMethod('POST')){
-            $form->submit($request);
-        }
-        if($form->isValid()) {
-            $post->setUser($this->getUser());
-            $this->em()->persist($post);
-            $this->em()->flush();
-            $post->upload();
-            $this->em()->flush();
 
-            $url = $this->generateUrl('inAccount');
-            return $this->redirect($url);
-        }
-            return $this->render('ihateClientBundle:Content:create.html.twig', array(
-                    'form' => $form->createView())
-            );
-    }
 
     /**
      * @Route ("/edit", name="edit")
@@ -175,7 +138,7 @@ class ContentController extends AdvancedController
 
                 return $this->redirect($this->generateUrl('edit'));
             } else {
-                var_dump($form->getErrors());
+                $form->getErrors();
             }
         }
         return $this->render('ihateClientBundle:Client:edit.html.twig', array(

@@ -10,8 +10,10 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('text', 'textarea')
-            ->add('file');
+            ->add('content')
+            ->add('Sign up for iHate', 'submit', array(
+            'attr' => array('class' => 'btn btn-primary')
+            ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
