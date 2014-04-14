@@ -10,9 +10,9 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('content')
-            ->add('Sign up for iHate', 'submit', array(
-            'attr' => array('class' => 'btn btn-primary')
+            ->add('content','text')
+            ->add('add', 'submit', array(
+            'attr' => array('class' => 'btn btn-primary'),
             ));
     }
 

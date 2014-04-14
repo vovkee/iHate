@@ -1,7 +1,7 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 
 {% block content %}
-    <div class="well">
+    <div class="well1">
         {{ include('ihateClientBundle:Content:postTop.html.twig', { "post": post }) }}
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -14,8 +14,16 @@
             </div>
         </div>
     </div>
-        <div class="comment">
-           <h3>Comments(*)</h3>
-            {{ form(form) }}
+
+    <div class="comment">
+        <div class="commentCreate">
+            <h4>Comment section</h4>
+            {{ include('ihateClientBundle:Comment:commentCreate.html.twig') }}
         </div>
+
+        <div class="commentShow">
+            {{ include('ihateClientBundle:Comment:commentShow.html.twig') }}
+        </div>
+    </div>
+
 {% endblock content %}

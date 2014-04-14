@@ -1,0 +1,13 @@
+<form action="{{ path('showPost',  { 'id': post.id }) }}" method="post" {{ form_enctype(form) }}>
+
+    <ul class="error">
+        {{ form_errors(form.content) }}
+    </ul>
+    <div class="input-group">
+        {{ form_widget(form.content, {'attr': {'class':'form-control','placeholder':'Your comment...'} }) }}
+        <span class="input-group-btn">
+                {{ form_widget(form.add, { 'class':'btn btn-primary'} ) }}
+                </span>
+        {{ form_rest(form) }}
+    </div>
+</form>

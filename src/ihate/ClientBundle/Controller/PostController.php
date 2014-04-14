@@ -32,33 +32,36 @@ class PostController extends AdvancedController
         $repository = $this->getPostRepository();
         $post = $repository->findOneById($id);
         $user = $this->getUser();
-        var_dump($user);
         if(!$post)
         {
             return $this->redirect($this->generateUrl('inAccount'));
         }
-        $commentRepository = $this->getCommentRepository();
-        $comments = $commentRepository->findBy(array(
-            //'post' => $post,
-            'post' => $post->getId()
-        ));// @todo: order by created_at
-
         $comment = new Comment();
         $form = $this->createForm(new CommentType(), $comment);
         if($request->isMethod('POST')){
             $form->submit($request);
             if($form->isValid()){
                 $data = $form->getData();
-                $comment->setUser($data->getUser($user))
-                        ->setText($data->getText())
-                        ->;
 
+                $comment->setUser($user)
+                        ->setContent($data->getContent())
+                        ->setPost($post);
+                $this->em()->persist($comment);
+                $this->em()->flush();
+
+                $comment = new Comment();
+                $form = $this->createForm(new CommentType(), $comment);
             }
         }
+        $commentRepository = $this->getCommentRepository();
+        $comments = $commentRepository->findBy(array(
+            'post' => $post->getId()
+        ), array('createdAt' => 'DESC'));
         return array(
             'form'  =>  $form->createView(),
             'post'  =>  $post,
-            'comments' => $comments
+            'comments' => $comments,
+            'user'  =>  $user
         );
     }
 
