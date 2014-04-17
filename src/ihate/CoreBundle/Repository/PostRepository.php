@@ -14,7 +14,31 @@ use ihate\CoreBundle\Entity\Post;
  */
 class PostRepository extends EntityRepository
 {
-    public function showPost(User $user)
+    public function showPosts(User $user)
+    {
+        $ids = $this->getFollowersIds($user->getFollowers());
+        return $this->createQueryBuilder('p')
+            ->addSelect('u')
+            ->join('p.user', 'u')
+            ->where('p.user IN (:follow)')
+            ->orWhere('p.user = :user')
+            ->setParameter('user', $user)
+            ->setParameter('follow', $ids)
+            ->orderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    private function getFollowersIds($users)
+    {
+        $ids = array();
+        foreach ($users as $user) {
+            $ids[] = $user->getId();
+        }
+        return $ids;
+    }
+
+    public function showMyPosts(User $user)
     {
         return $this->createQueryBuilder('p')
             ->where('p.user = :user')

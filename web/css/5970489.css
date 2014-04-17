@@ -5991,4 +5991,7 @@ body{
     border-top: 1px solid #555;
     margin-bottom: -20px;
 }
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th{
+    background-color: rgba(107,180,232,.5);
+}
 

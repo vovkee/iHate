@@ -107,17 +107,17 @@ class User implements UserInterface
      *      inverseJoinColumns={@ORM\JoinColumn(name="following_id", referencedColumnName="id")}
      * )
      */
-    protected $follows;
+    protected $follower;
 
     /**
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="follows")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="follower")
      */
     protected $following;
 
     public function __construct()
     {
         $this->initSalt();
-        $this->follows = new ArrayCollection();
+        $this->follower = new ArrayCollection();
     }
 
     public function __sleep()
@@ -322,7 +322,7 @@ class User implements UserInterface
 
     public function isFollowed(User $user)
     {
-        foreach ($this->follows as $follow) {
+        foreach ($this->follower as $follow) {
             if ($follow == $user) {
                 return true;
             }
@@ -332,36 +332,36 @@ class User implements UserInterface
     }
 
     /**
-     * Add follows
+     * Add follower
      *
-     * @param \ihate\CoreBundle\Entity\User $follows
+     * @param \ihate\CoreBundle\Entity\User $follower
      * @return User
      */
-    public function addFollow(User $follows)
+    public function addFollow(User $follower)
     {
-        $this->follows[] = $follows;
+        $this->follower[] = $follower;
 
         return $this;
     }
 
     /**
-     * Remove follows
+     * Remove follower
      *
-     * @param \ihate\CoreBundle\Entity\User $follows
+     * @param \ihate\CoreBundle\Entity\User $follower
      */
-    public function removeFollow(User $follows)
+    public function removeFollow(User $follower)
     {
-        $this->follows->removeElement($follows);
+        $this->follower->removeElement($follower);
     }
 
     /**
-     * Get follows
+     * Get follower
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getFollows()
+    public function getFollowers()
     {
-        return $this->follows;
+        return $this->follower;
     }
     public function getAbsolutePath()
     {

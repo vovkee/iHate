@@ -31,7 +31,26 @@ class ContentController extends AdvancedController
         $name = $user->getName();
         $surname = $user->getSurname();
         $repository = $this->getPostRepository();
-        $posts = $repository->showPost($user);
+        $posts = $repository->showPosts($user);
+        $path = $user->showImage();
+        return array(
+            'name'      =>  $name,
+            'surname'   =>  $surname,
+            'path'      =>  $path,
+            'posts'     =>  $posts
+        );
+    }
+    /**
+     * @Route("/myhates", name="myHates")
+     * @Template("ihateClientBundle:Content:myHates.html.twig")
+     */
+    public function myHatesAction(Request $request)
+    {
+        $user = $this->getUser();
+        $name = $user->getName();
+        $surname = $user->getSurname();
+        $repository = $this->getPostRepository();
+        $posts = $repository->showMyPosts($user);
         $path = $user->showImage();
         return array(
             'name'      =>  $name,
@@ -145,6 +164,20 @@ class ContentController extends AdvancedController
             'entity'    => $entity,
             'form'      => $form->createView(),
         ));
+    }
+
+    /**
+     * @Route("/myMates", name="myMates")
+     * @Template("ihateClientBundle:Content:myMates.html.twig")
+     */
+    public function myMatesAction(Request $request)
+    {
+        $user = $this->getUser();
+        $follows = $user->getFollowers();
+        return array(
+            'user'      =>  $user,
+            'follows'   =>  $follows
+        );
     }
 
     private function refresh(Request $request)
