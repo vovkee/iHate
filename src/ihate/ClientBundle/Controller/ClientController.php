@@ -62,7 +62,8 @@ class ClientController extends AdvancedController
         }
 
         if($form->isValid()) {
-            $data = $form->getData();
+            $data = $form->
+                getData();
 
             $user = new User();
 

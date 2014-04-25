@@ -49,8 +49,7 @@ class User implements UserInterface
     protected $email;
 
     /**
-     * @Assert\Image()
-     * @Assert\File(maxSize="6000000")
+     * @Assert\Image(maxSize="2936013")
      */
     private $file;
 
@@ -424,7 +423,7 @@ class User implements UserInterface
             return;
         }
 
-        $fileName = $this->getId().'_avatar.'.$this->getFile()->guessExtension();;
+        $fileName = $this->getId().'_avatar.'.$this->getFile()->guessExtension();
 
         $this->getFile()->move(
             $this->getUploadRootDir(),

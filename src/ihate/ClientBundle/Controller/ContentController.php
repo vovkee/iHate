@@ -157,7 +157,7 @@ class ContentController extends AdvancedController
 
                 return $this->redirect($this->generateUrl('edit'));
             } else {
-                $form->getErrors();
+                $this->getAllFormErrors($form);
             }
         }
         return $this->render('ihateClientBundle:Client:edit.html.twig', array(
@@ -184,5 +184,33 @@ class ContentController extends AdvancedController
     {
         $url = $request->server->get('HTTP_REFERER', false);
         return $this->redirect($url?$url:$this->generateUrl('inAccount'));
+    }
+    /**
+     * Returns array of form errors
+     * @param \Symfony\Component\Form\Form $form
+     * @return array
+     */
+    protected function getAllFormErrors(\Symfony\Component\Form\Form $form) {
+        $errors = array();
+        $translation = $this->container->get('translator');
+
+        foreach ($form->getErrors() as $key => $error) {
+            $template = $translation->trans($error->getMessageTemplate(), array(), "validators");
+            $parameters = $error->getMessageParameters();
+
+            foreach ($parameters as $var => $value) {
+                $template = str_replace($var, $value, $template);
+            }
+
+            $errors[$key] = $template;
+        }
+        if ($form->count()) {
+            foreach ($form as $child) {
+                if (!$child->isValid()) {
+                    $errors[$child->getName()] = $this->getAllFormErrors($child);
+                }
+            }
+        }
+        return $errors;
     }
 }

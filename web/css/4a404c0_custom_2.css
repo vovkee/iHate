@@ -69,8 +69,8 @@ blockquote.pull-right {
     height: auto;
 }
 .ownerImage{
-    width:70px;
-    height:auto;
+    width:70px !important;
+    height:auto !important;
 }
 .regLink{
     padding-left: 75px;
@@ -146,6 +146,9 @@ body{
     background-color: #517F81;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+}
+.commentContent{
+    max-width: 700px;
 }
 .postBottom{
     margin-top: -25px;
