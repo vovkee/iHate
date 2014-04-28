@@ -52,4 +52,12 @@ class AdvancedController extends Controller
         return $this->getDoctrine()->getManager()
             ->getRepository('ihateCoreBundle:Comment');
     }
+    /**
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getHateRepository()
+    {
+        return $this->getDoctrine()->getManager()
+            ->getRepository('ihateCoreBundle:Hate');
+    }
 }

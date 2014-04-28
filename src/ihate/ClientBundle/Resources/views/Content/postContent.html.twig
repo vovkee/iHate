@@ -12,12 +12,18 @@
     {% if post.text|length > 255 %}
         <a class="link" href="{{ path('showPost', { 'id': post.id }) }}">Continue reading...</a>
     {% else %}
-        <a  href="{{ path('showPost', { 'id': post.id }) }}" type="button" class="btn-group-default btn-xs link">
+        <a href="{{ path('showPost', { 'id': post.id }) }}" type="button" class="btn-group-default btn-xs link">
             <span class="glyphicon glyphicon-comment"></span> Comment
         </a>
     {% endif %}
-    <button type="button" class="btn btn-danger btn-xs">
-        <span class="glyphicon glyphicon-fire"></span> ihate
-    </button>
+    {% if app.user.isHated(post) %}
+        <a type="button" class="btn btn-danger btn-xs" href="{{ path('unHate', { 'id': post.id }) }}">
+            <span class="glyphicon glyphicon-fire"></span> uNiHate
+        </a>
+    {% else %}
+        <a type="button" class="btn btn-danger btn-xs" href="{{ path('hate', { 'id': post.id }) }}">
+            <span class="glyphicon glyphicon-fire"></span> iHate
+        </a>
+    {% endif %}
 </div><br><br>
 

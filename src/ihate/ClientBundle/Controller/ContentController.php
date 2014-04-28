@@ -2,6 +2,7 @@
 
 namespace ihate\ClientBundle\Controller;
 
+use ihate\CoreBundle\Entity\Hate;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ihate\CoreBundle\Controller\AdvancedController;
@@ -27,6 +28,7 @@ class ContentController extends AdvancedController
      */
     public function homeAction(Request $request)
     {
+        $hate = new Hate();
         $user = $this->getUser();
         $name = $user->getName();
         $surname = $user->getSurname();
@@ -37,7 +39,8 @@ class ContentController extends AdvancedController
             'name'      =>  $name,
             'surname'   =>  $surname,
             'path'      =>  $path,
-            'posts'     =>  $posts
+            'posts'     =>  $posts,
+            'hate'      =>  $hate
         );
     }
     /**
@@ -84,6 +87,49 @@ class ContentController extends AdvancedController
         }
     }
 
+    /**
+     * @Route("/hate/{id}", name="hate")
+     * @Template()
+     */
+    public  function hateAction(Request $request, $id)
+    {
+        $user = $this->getUser();
+        $hate = new Hate();
+        $hate->setUser($this->getUser());
+        $hate->setPost($this->getPostRepository()->findOneById($id));
+        $this->em()->persist($hate);
+        $this->em()->flush();
+        if (!$hate) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+        $this->getUserManager()->hate($user, $hate);
+        return $this->refresh($request);
+    }
+
+    /**
+     * @Route ("/uNhate/{id}", name="unHate")
+     */
+    public function unHateAction(Request $request, $id)
+    {
+        /**
+         * @var User $user
+         */
+        $user = $this->getUser();
+        $post = $this->getPostRepository()->find($id);
+        /**
+         * @var Hate $hate
+         */
+        $hate = $this->getHateRepository()->findOneBy(array(
+            'user' => $user,
+            'post' => $post
+        ));
+        if ($hate) {
+            $this->getUserManager()->hateRemove($user, $hate);
+        }
+        return $this->refresh($request);
+    }
     /**
      * @Route ("/follow/{id}", name="follow")
      * @Template()

@@ -49,7 +49,7 @@ class User implements UserInterface
     protected $email;
 
     /**
-     * @Assert\Image(maxSize="2936013")
+     * @Assert\Image()
      */
     private $file;
 
@@ -98,6 +98,12 @@ class User implements UserInterface
      */
     protected $country;
 
+    /**
+     * @var hate
+     *
+     * @ORM\OneToMany(targetEntity="Hate", mappedBy="user")
+     */
+    protected $hates;
 
     /**
      * @ORM\ManyToMany(targetEntity="User", inversedBy="following")
@@ -117,6 +123,42 @@ class User implements UserInterface
     {
         $this->initSalt();
         $this->follower = new ArrayCollection();
+        $this->hates = new ArrayCollection();
+    }
+
+    public function isHated(Post $post)
+    {
+        foreach ($this->hates as $hate) {
+            if ($hate->getPost() == $post) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Add Hate
+     *
+     * @param \ihate\CoreBundle\Entity\Hate $hate
+     * @return hate
+     */
+    public function addHate(Hate $hate)
+    {
+        $this->hates->add($hate);
+
+        return $this;
+    }
+
+
+    /**
+     * Remove Hate
+     *
+     * @param \ihate\CoreBundle\Entity\Hate $hate
+     */
+    public function removeHate(Hate $hate)
+    {
+        $this->hates->removeElement($hate);
     }
 
     public function __sleep()
@@ -512,5 +554,14 @@ class User implements UserInterface
     public function getAbout()
     {
         return $this->about;
+    }
+    /**
+     * Get hates
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getHates()
+    {
+        return $this->hates;
     }
 }

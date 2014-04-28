@@ -3,12 +3,14 @@
 namespace ihate\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Hate
  *
  * @ORM\Table(name="hate", uniqueConstraints={@ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})}, indexes={@ORM\Index(name="user_id", columns={"user_id"}), @ORM\Index(name="post_id", columns={"post_id"})})
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class Hate
 {
@@ -29,9 +31,9 @@ class Hate
     private $createdAt;
 
     /**
-     * @var \User
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="hates")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -39,7 +41,7 @@ class Hate
     private $user;
 
     /**
-     * @var \Post
+     * @var Post
      *
      * @ORM\ManyToOne(targetEntity="Post")
      * @ORM\JoinColumns({
@@ -47,8 +49,6 @@ class Hate
      * })
      */
     private $post;
-
-
 
     /**
      * Get id
@@ -62,7 +62,7 @@ class Hate
 
     /**
      * Set createdAt
-     *
+     * @ORM\PrePersist
      * @param \DateTime $createdAt
      * @return Hate
      */
@@ -71,6 +71,13 @@ class Hate
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->createdAt = new \DateTime();
     }
 
     /**

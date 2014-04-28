@@ -3,7 +3,9 @@
 namespace ihate\ClientBundle\Controller;
 
 use ihate\CoreBundle\Entity\Comment;
+use ihate\CoreBundle\Entity\Hate;
 use ihate\CoreBundle\Form\Type\CommentType;
+use ihate\CoreBundle\Form\Type\HateType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ihate\CoreBundle\Controller\AdvancedController;
@@ -13,6 +15,7 @@ use ihate\CoreBundle\Form\Type\UserType;
 use ihate\CoreBundle\Entity\User;
 use ihate\CoreBundle\Entity\Post;
 use ihate\CoreBundle\Entity\Country;
+use ihate\ClientBundle\Controller\ContentController;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -90,4 +93,5 @@ class PostController extends AdvancedController
                 'form' => $form->createView())
         );
     }
+
 }
