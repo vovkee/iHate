@@ -2,15 +2,21 @@
 
 {% block content %}
     <div class="well1">
-        {{ include('ihateClientBundle:Content:postTop.html.twig', { "post": post }) }}
+        {{ include('ihateClientBundle:Content:postHeader.html.twig', { "post": post }) }}
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <p class="postText">
                     {{ post.text }}
                 </p>
-                <button type="button" class="btn btn-danger btn-xs">
-                    <span class="glyphicon glyphicon-fire"></span> ihate
-                </button>
+                {% if app.user.isHated(post) %}
+                    <a type="button" class="btn btn-success btn-xs" href="{{ path('unHate', { 'id': post.id }) }}">
+                        <span class="glyphicon glyphicon-thumbs-up"></span> unHate
+                    </a>
+                {% else %}
+                    <a type="button" class="btn btn-danger btn-xs" href="{{ path('hate', { 'id': post.id }) }}">
+                        <span class="glyphicon glyphicon-thumbs-down"></span> Hate
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>

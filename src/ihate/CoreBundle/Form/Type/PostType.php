@@ -11,7 +11,7 @@ class PostType extends AbstractType
     {
         $builder
             ->add('text', 'textarea')
-            ->add('embed')
+            ->add('embed', 'text', array('label'    =>  'Youtube video'))
             ->add('file')
             ->add('Ok', 'submit', array(
             'attr' => array('class' => 'btn btn-primary')

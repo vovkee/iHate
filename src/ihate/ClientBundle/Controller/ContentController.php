@@ -97,6 +97,7 @@ class ContentController extends AdvancedController
         $hate = new Hate();
         $hate->setUser($this->getUser());
         $hate->setPost($this->getPostRepository()->findOneById($id));
+        $PostHates = $hate->getPost($id)->addHate($hate);
         $this->em()->persist($hate);
         $this->em()->flush();
         if (!$hate) {
@@ -126,6 +127,7 @@ class ContentController extends AdvancedController
             'post' => $post
         ));
         if ($hate) {
+            $post->removeHate($hate);
             $this->getUserManager()->hateRemove($user, $hate);
         }
         return $this->refresh($request);
@@ -152,7 +154,7 @@ class ContentController extends AdvancedController
             );
         }
 
-        $this->getUserManager()->connect($follower, $following);
+        $this->getUserManager()->follow($follower, $following);
         return $this->refresh($request);
     }
     /**

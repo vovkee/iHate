@@ -29,39 +29,39 @@ class UserManager
     }
 
     /**
-     * @param User $u1
-     * @param User $u2
+     * @param User $user1
+     * @param User $user2
      */
-    public function connect(User $u1, User $u2)
+    public function follow(User $user1, User $user2)
     {
-        $u1->addFollow($u2);
+        $user1->addFollow($user2);
         $this->entityManager->flush();
     }
     /**
-     * @param User $u1
-     * @param User $u2
+     * @param User $user1
+     * @param User $user2
      */
-    public function followRemove(User $u1, User $u2)
+    public function followRemove(User $user1, User $user2)
     {
-        $u1->removeFollow($u2);
+        $user1->removeFollow($user2);
         $this->entityManager->flush();
     }
     /**
-     * @param User $u1
-     * @param Hate $h2
+     * @param User $user1
+     * @param Hate $hate
      */
-    public function hate(User $u1, Hate $h2)
+    public function hate(User $user1, Hate $hate)
     {
-        $u1->addHate($h2);
-        $this->entityManager->flush($u1);
+        $user1->addHate($hate);
+        $this->entityManager->flush($user1);
     }
     /**
-     * @param User $u1
-     * @param Hate $h2
+     * @param User $user1
+     * @param Hate $hate
      */
-    public function hateRemove(User $u1, Hate $h2)
+    public function hateRemove(User $user1, Hate $hate)
     {
-        $this->entityManager->remove($h2);
+        $this->entityManager->remove($hate);
         $this->entityManager->flush();
     }
 } 

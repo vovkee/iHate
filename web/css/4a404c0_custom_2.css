@@ -64,6 +64,10 @@ blockquote.pull-right {
     height: 100%;
     padding-bottom: 10px;
 }
+.imageContainer iframe{
+    width: 100%;
+    height: 40%;
+}
 .imageContainer img{
     width: 100%;
     height: auto;

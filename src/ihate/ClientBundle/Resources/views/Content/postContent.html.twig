@@ -1,9 +1,10 @@
 <div class="well">
     <div class="postTop">
-        {{ include('ihateClientBundle:Content:postTop.html.twig', { "post": post }) }}
+        {{ include('ihateClientBundle:Content:postHeader.html.twig', { "post": post }) }}
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <p class="postText">{{ post.text|truncate(255) }}</p>
+                <h1>{{ post.hates|length }}</h1>
             </div>
         </div>
     </div><br>
@@ -17,12 +18,12 @@
         </a>
     {% endif %}
     {% if app.user.isHated(post) %}
-        <a type="button" class="btn btn-danger btn-xs" href="{{ path('unHate', { 'id': post.id }) }}">
-            <span class="glyphicon glyphicon-fire"></span> uNiHate
+        <a type="button" class="btn btn-success btn-xs" href="{{ path('unHate', { 'id': post.id }) }}">
+            <span class="glyphicon glyphicon-thumbs-up"></span> unHate
         </a>
     {% else %}
         <a type="button" class="btn btn-danger btn-xs" href="{{ path('hate', { 'id': post.id }) }}">
-            <span class="glyphicon glyphicon-fire"></span> iHate
+            <span class="glyphicon glyphicon-thumbs-down"></span> Hate
         </a>
     {% endif %}
 </div><br><br>

@@ -2,8 +2,9 @@
 
 namespace ihate\CoreBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -45,7 +46,7 @@ class Post
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="text", type="text", nullable=false)
      */
     private $text;
@@ -66,6 +67,50 @@ class Post
      * })
      */
     private $user;
+
+    /**
+     * @var hates
+     * @ORM\OneToMany(targetEntity="Hate", mappedBy="post")
+     */
+    private $hates;
+
+
+    public function __construct()
+    {
+        $this->hates = new ArrayCollection();
+    }
+    /**
+     * Add Hate
+     *
+     * @param \ihate\CoreBundle\Entity\Hate $hate
+     * @return hate
+     */
+    public function addHate(Hate $hate)
+    {
+        $this->hates->add($hate);
+
+        return $this;
+    }
+
+
+    /**
+     * Remove Hate
+     *
+     * @param \ihate\CoreBundle\Entity\Hate $hate
+     */
+    public function removeHate(Hate $hate)
+    {
+        $this->hates->removeElement($hate);
+    }
+    /**
+     * Get hates
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getHates()
+    {
+        return $this->hates;
+    }
 
     /**
      * Get id
@@ -140,7 +185,11 @@ class Post
      */
     public function setEmbed($embed)
     {
-        $this->embed = $embed;
+        if (preg_match('![?&]{1}v=([^&]+)!', $embed. '&', $m)){
+            $video_id = $m[1];
+            $this->embed = $video_id;
+            return $this;
+        }
 
         return $this;
     }

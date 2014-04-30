@@ -13,5 +13,12 @@ use ihate\CoreBundle\Entity\Hate;
  */
 class HateRepository extends EntityRepository
 {
-
+    private function getHatesIds($hates)
+    {
+        $ids = array();
+        foreach ($hates as $hate) {
+            $ids[] = $hate->getId();
+        }
+        return $ids;
+    }
 }

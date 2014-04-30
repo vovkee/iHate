@@ -16,10 +16,11 @@
     {% if post.path %}
         <img src="{{ asset(post.showImage()) }}"/>
         <div class="row">
-            <div class="line-2"></div>
+            <div style="margin-bottom: 13px;" class="line-2"></div>
         </div>
     {% endif %}
 
     {% if post.embed %}
+        <iframe src="//www.youtube.com/embed/{{ post.embed }}" frameborder="0" allowfullscreen></iframe>
     {% endif %}
 </div>

@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="well">
-        <form action="{{ path('create') }}" {{ form_enctype(form) }}  method="POST">
+        <form action="{{ path('create') }}" {{ form_enctype(form) }}  method="POST" novalidate="novalidate">
 
             {{ form_label(form.file) }}
             <ul class="error">{{ form_errors(form.file) }}</ul>
@@ -11,7 +11,7 @@
 
             {{ form_label(form.embed) }}
             <ul class="error">{{ form_errors(form.embed) }}</ul>
-            {{ form_widget(form.embed, {'attr': {'class':'form-control input-md','placeholder':'Enter embed from youtube here'} }) }}
+            {{ form_widget(form.embed, {'attr': {'class':'form-control input-md','placeholder':'Enter link from youtube here'} }) }}
             <br>
 
             {{ form_label(form.text) }}

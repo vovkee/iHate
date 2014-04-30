@@ -18,10 +18,13 @@ class PostRepository extends EntityRepository
     {
         $ids = $this->getFollowersIds($user->getFollowers());
         return $this->createQueryBuilder('p')
-            ->addSelect('u')
+            ->addSelect('u, h')
             ->join('p.user', 'u')
+            ->leftJoin('p.hates', 'h')
             ->where('p.user IN (:follow)')
             ->orWhere('p.user = :user')
+            ->orWhere('h.user = :user')
+            ->orWhere('h.user IN (:follow)')
             ->setParameter('user', $user)
             ->setParameter('follow', $ids)
             ->orderBy('p.createdAt', 'DESC')
