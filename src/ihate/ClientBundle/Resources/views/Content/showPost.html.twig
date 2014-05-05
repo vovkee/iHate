@@ -1,7 +1,7 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 
 {% block content %}
-    <div class="well1">
+    <div class="well">
         {{ include('ihateClientBundle:Content:postHeader.html.twig', { "post": post }) }}
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -17,6 +17,8 @@
                         <span class="glyphicon glyphicon-thumbs-down"></span> Hate
                     </a>
                 {% endif %}
+                Total: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.hates|length }}
+                ({{ app.user.country }}: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.getHatesByCountry(app.user.country)|length }})
             </div>
         </div>
     </div>

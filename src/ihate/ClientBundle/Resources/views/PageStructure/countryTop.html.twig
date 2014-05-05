@@ -1,13 +1,20 @@
-<h2>TOP5 most hated posts in your country(Latvia):</h2>
-<table class="table">
-    <thead>
-        <th>#</th>
-        <th>Member</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Some Member</td>
-        </tr>
-    </tbody>
-</table>
+<h3>Most hated posts from your country ({{app.user.getCountry()}}):</h3>
+{% if top %}
+    <table class="table">
+        <thead>
+            <th>#</th>
+            <th>Posts</th>
+        </thead>
+        <tbody>
+            {% for post in top %}
+                <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+                    <td>{{ loop.index }}</td>
+                    <td><a href="/post/{{ post.getId() }}">{{ post.getText()|truncate(10) }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="line-2"></div>
+    <h4>No posts from your Country!</h4>
+{% endif %}

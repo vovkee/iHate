@@ -295,4 +295,15 @@ class Post
 
         $this->file = null;
     }
+
+    public function getHatesByCountry($country)
+    {
+        $hates = array();
+        foreach ($this->getHates() as $hate) {
+            if ($hate->getUser()->getCountry() == $country) {
+                $hates[] = $hate;
+            }
+        }
+        return $hates;
+    }
 }

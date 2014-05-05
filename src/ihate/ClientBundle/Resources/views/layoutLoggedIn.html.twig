@@ -16,23 +16,29 @@
         {% endstylesheets %}
     </head>
     <body>
-
         {{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
         <div class="content">
-             <div class="container-fluid">
-                 <div class="row">
-                        <div class="col-xs-12 col-sm-3 col-md-offset-1 col-md-2 col-lg-offset-1 col-lg-2">
-                         {{ include('ihateClientBundle:PageStructure:sideMenuIn.html.twig') }}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-offset-1 col-md-2 col-lg-offset-2 col-lg-2">
+                        {{ include('ihateClientBundle:PageStructure:sideMenuIn.html.twig') }}
+                    </div>
+                    <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+                        {% block content '' %}
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-3 col-lg-2 countryTop">
+                        <div class="well2">
+                            {{ render(controller('ihateClientBundle:Content:top')) }}
                         </div>
-                        <div class="col-xs-12 col-sm-7 col-md-5 col-lg-6">
-                            {% block content %}
-                            {% endblock %}
-                        </div>
-                        <div class="col-xs-12 col-sm-2 col-md-4 col-lg-2 well2">
-                            {{ include('ihateClientBundle:PageStructure:countryTop.html.twig') }}
-                        </div>
+                    </div>
                 </div>
-             </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted">OLOLO some footer text!</p>
+            </div>
         </div>
 
         {% javascripts
@@ -43,11 +49,5 @@
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
-
-        <div id="footer">
-            <div class="container">
-                <p class="text-muted">OLOLO some footer text!</p>
-            </div>
-        </div>
     </body>
 </html>

@@ -4,7 +4,6 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <p class="postText">{{ post.text|truncate(255) }}</p>
-                <h1>{{ post.hates|length }}</h1>
             </div>
         </div>
     </div><br>
@@ -26,5 +25,7 @@
             <span class="glyphicon glyphicon-thumbs-down"></span> Hate
         </a>
     {% endif %}
+    Total: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.hates|length }}
+    ({{ app.user.country }}: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.getHatesByCountry(app.user.country)|length }})
 </div><br><br>
 

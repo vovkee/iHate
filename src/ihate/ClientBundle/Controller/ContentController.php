@@ -261,4 +261,19 @@ class ContentController extends AdvancedController
         }
         return $errors;
     }
+
+    /**
+     * @Route("/top", name="top")
+     * @Template()
+     */
+    public function topAction()
+    {
+        $repository = $this->getPostRepository();
+        $top = $repository->getTop($this->getUser());
+        return $this->render(
+            'ihateClientBundle:PageStructure:countryTop.html.twig',
+            array('top' => $top)
+        )
+            ;
+    }
 }

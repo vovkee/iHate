@@ -18,9 +18,10 @@ class PostRepository extends EntityRepository
     {
         $ids = $this->getFollowersIds($user->getFollowers());
         return $this->createQueryBuilder('p')
-            ->addSelect('u, h')
+            ->addSelect('u, h, hu')
             ->join('p.user', 'u')
             ->leftJoin('p.hates', 'h')
+            ->leftJoin('h.user', 'hu')
             ->where('p.user IN (:follow)')
             ->orWhere('p.user = :user')
             ->orWhere('h.user = :user')
@@ -49,5 +50,62 @@ class PostRepository extends EntityRepository
             ->orderBy('p.createdAt', 'DESC')
             ->getQuery()
             ->getResult();
+    }
+
+    /**
+     * @return array
+     */
+    public function getTop(User $user)
+    {
+        $country = $user->getCountry();
+        $resultS = $this->createQueryBuilder('p')
+            ->addSelect('COUNT(h) AS hates')
+            ->join('p.hates', 'h')
+            ->leftjoin('h.user','u')
+            ->where('u.country = :country')
+            ->setParameter('country', $country)
+            ->groupBy('p')
+            ->orderBy('hates', 'DESC')
+            ->addOrderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        $response = array();
+
+        foreach ($resultS as $index => $result) {
+            $response[] = $result[0];
+
+            if ($index > 3) {
+                break;
+            }
+        }
+
+        return $response;
+    }
+    /**
+     * @return array
+     */
+    public function getTopAll()
+    {
+        $resultS = $this->createQueryBuilder('p')
+            ->addSelect('COUNT(h) AS hates')
+            ->join('p.hates', 'h')
+            ->groupBy('p')
+            ->orderBy('hates', 'DESC')
+            ->addOrderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        $response = array();
+
+        foreach ($resultS as $index => $result) {
+            $response[] = $result[0];
+
+            if ($index > 4) {
+                break;
+            }
+        }
+
+        return $response;
     }
 }

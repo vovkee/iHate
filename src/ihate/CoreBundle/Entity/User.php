@@ -428,12 +428,22 @@ class User implements UserInterface
         return 'uploads/avatar';
     }
 
+    public function haveImage()
+    {
+        $path = $this->getWebPath();
+
+        if (!$path) {
+            return false;
+        }
+        return true;
+    }
+
     public function showImage()
     {
         $path = $this->getWebPath();
 
         if (!$path) {
-            $path = 'holder.js/150x150';
+            $path = 'js/holder.js/150x150';
         }
 
         return $path;

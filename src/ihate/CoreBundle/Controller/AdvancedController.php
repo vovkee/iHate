@@ -3,6 +3,10 @@ namespace ihate\CoreBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
 use ihate\CoreBundle\Manager\UserManager;
+use ihate\CoreBundle\Repository\PostRepository;
+use ihate\CoreBundle\Repository\UserRepository;
+use ihate\CoreBundle\Repository\CommentRepository;
+use ihate\CoreBundle\Repository\HateRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
@@ -20,7 +24,7 @@ class AdvancedController extends Controller
     }
 
     /**
-     * @return \Doctrine\Common\Persistence\ObjectRepository
+     * @return UserRepository
      */
     public function getUserRepository()
     {
@@ -28,7 +32,7 @@ class AdvancedController extends Controller
             ->getRepository('ihateCoreBundle:User');
     }
     /**
-     * @return \Doctrine\Common\Persistence\ObjectRepository
+     * @return PostRepository
      */
     public function getPostRepository()
     {
@@ -45,7 +49,7 @@ class AdvancedController extends Controller
     }
 
     /**
-     * @return \Doctrine\Common\Persistence\ObjectRepository
+     * @return CommentRepository
      */
     public function getCommentRepository()
     {
@@ -53,7 +57,7 @@ class AdvancedController extends Controller
             ->getRepository('ihateCoreBundle:Comment');
     }
     /**
-     * @return \Doctrine\Common\Persistence\ObjectRepository
+     * @return HateRepository
      */
     public function getHateRepository()
     {
