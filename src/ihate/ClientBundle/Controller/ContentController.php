@@ -263,7 +263,7 @@ class ContentController extends AdvancedController
     }
 
     /**
-     * @Route("/top", name="top")
+     * @Route("/", name="top")
      * @Template()
      */
     public function topAction()
@@ -273,6 +273,20 @@ class ContentController extends AdvancedController
         return $this->render(
             'ihateClientBundle:PageStructure:countryTop.html.twig',
             array('top' => $top)
+        )
+            ;
+    }
+    /**
+     * @Route("/fsdf", name="usertop")
+     * @Template()
+     */
+    public function userTopAction()
+    {
+        $repository = $this->getUserRepository();
+        $userTop = $repository->getUserTop($this->getUser());
+        return $this->render(
+            'ihateClientBundle:PageStructure:userTop.html.twig',
+            array('userTop' => $userTop)
         )
             ;
     }

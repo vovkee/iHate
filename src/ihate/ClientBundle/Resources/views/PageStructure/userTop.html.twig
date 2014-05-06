@@ -1,20 +1,20 @@
-<h3>Most hated posts from your country ({{app.user.getCountry()}}):</h3>
-{% if top %}
+<h3>Main haters to follow in your country ({{app.user.getCountry()}}):</h3>
+{% if userTop %}
     <table class="table">
         <thead>
             <th>#</th>
             <th>Posts</th>
         </thead>
         <tbody>
-            {% for post in top %}
+            {% for user in userTop %}
                 <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
                     <td>{{ loop.index }}</td>
-                    <td><a href="/post/{{ post.id }}">{{ post.text|truncate(20) }}</a></td>
+                    <td>efwefwf</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 {% else %}
     <div class="line-2"></div>
-    <h4>No posts from your Country!</h4>
+    <h4>No haters from your Country!</h4>
 {% endif %}

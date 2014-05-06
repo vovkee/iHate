@@ -58,7 +58,7 @@ class PostRepository extends EntityRepository
     public function getTop(User $user)
     {
         $country = $user->getCountry();
-        $resultS = $this->createQueryBuilder('p')
+        $results = $this->createQueryBuilder('p')
             ->addSelect('COUNT(h) AS hates')
             ->join('p.hates', 'h')
             ->leftjoin('h.user','u')
@@ -68,44 +68,33 @@ class PostRepository extends EntityRepository
             ->orderBy('hates', 'DESC')
             ->addOrderBy('p.createdAt', 'DESC')
             ->getQuery()
+            ->setMaxResults(5)
             ->getResult();
-
-        $response = array();
-
-        foreach ($resultS as $index => $result) {
-            $response[] = $result[0];
-
-            if ($index > 3) {
-                break;
-            }
+        $posts = array();
+        foreach ($results as $post) {
+            $posts[] = $post[0];
         }
-
-        return $response;
+        return $posts;
     }
     /**
      * @return array
      */
     public function getTopAll()
     {
-        $resultS = $this->createQueryBuilder('p')
+        $results = $this->createQueryBuilder('p')
             ->addSelect('COUNT(h) AS hates')
             ->join('p.hates', 'h')
             ->groupBy('p')
             ->orderBy('hates', 'DESC')
             ->addOrderBy('p.createdAt', 'DESC')
             ->getQuery()
+            ->setMaxResults(5)
             ->getResult();
 
-        $response = array();
-
-        foreach ($resultS as $index => $result) {
-            $response[] = $result[0];
-
-            if ($index > 4) {
-                break;
-            }
+        $posts = array();
+        foreach ($results as $post) {
+            $posts[] = $post[0];
         }
-
-        return $response;
+        return $posts;
     }
 }

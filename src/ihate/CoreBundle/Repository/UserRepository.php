@@ -41,4 +41,26 @@ class UserRepository extends EntityRepository
 
         return new Paginator($qb->getQuery());
     }
+    /**
+     * @return array
+     */
+    public function getUserTop(User $user)
+    {
+        $country = $user->getCountry();
+        $results = $this->createQueryBuilder('u')
+            ->addSelect('COUNT(h) AS hates')
+            ->join('u.hates', 'h')
+            ->leftjoin('h.user','hu')
+            ->where('hu.country = :country')
+            ->setParameter('country', $country)
+            ->setMaxResults(5)
+            ->groupBy('u')
+            ->orderBy('hates', 'DESC')
+           // ->addOrderBy('u.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+
+        return $results;
+    }
 }

@@ -59,6 +59,13 @@ class User implements UserInterface
     public $path;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", length=45, nullable=false)
+     */
+    private $createdAt;
+
+    /**
      * @var string
      * @ORM\Column(name="gender", type="string", length=1, nullable=false)
      *
@@ -573,5 +580,29 @@ class User implements UserInterface
     public function getHates()
     {
         return $this->hates;
+    }
+    public function setCreatedAtValue()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @ORM\PrePersist
+     */
+    public function setCreatedAt()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }
