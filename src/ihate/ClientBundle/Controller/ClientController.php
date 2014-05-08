@@ -5,6 +5,7 @@ use Symfony\Component\HttpFoundation\Request;
 use ihate\CoreBundle\Controller\AdvancedController;
 use ihate\CoreBundle\Entity\User;
 use ihate\CoreBundle\Entity\Post;
+use ihate\CoreBundle\Form\Type\UserType;
 use Symfony\Component\HttpFoundation\Response;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -87,15 +88,6 @@ class ClientController extends AdvancedController
         );
     }
 
-    /**
-     * @Route("/register/confirm", name="registration_confirm")
-     * @Template("ihateClientBundle:Client:regConfirm.html.twig")
-     */
-    public function regConfirmAction()
-    {
-        return array();
-    }
-
     private function encodePassword(User $user, $plainPassword)
     {
         /**
@@ -122,5 +114,80 @@ class ClientController extends AdvancedController
     public function logoutAction()
     {
         // security layer
+    }
+
+    /**
+     * @Route ("/edit", name="edit")
+     * @Method("POST")
+     * @Template()
+     */
+    public function profileAction()
+    {
+        $user   = $this->getUser();
+        $entity = $this->getUserRepository()->find($user);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }
+        $type = new UserType(UserType::TYPE_EDIT);
+
+        $form = $this->createForm($type, $entity);
+
+        $request = $this->get('request_stack')->getCurrentRequest();
+        if ($request->getMethod() === 'POST')
+        {
+            $form->submit($request);
+
+            if ($form->isValid()) {
+                $this->em()->persist($entity);
+                $this->em()->flush();
+                $entity->upload();
+                $this->em()->flush();
+
+                return $this->redirect($this->generateUrl('edit'));
+            } else {
+                $this->getAllFormErrors($form);
+            }
+        }
+        return $this->render('ihateClientBundle:Client:edit.html.twig', array(
+            'entity'    => $entity,
+            'form'      => $form->createView(),
+        ));
+    }
+
+    /**
+     * Returns array of form errors
+     * @param \Symfony\Component\Form\Form $form
+     * @return array
+     */
+    protected function getAllFormErrors(\Symfony\Component\Form\Form $form) {
+        $errors = array();
+        $translation = $this->container->get('translator');
+
+        foreach ($form->getErrors() as $key => $error) {
+            $template = $translation->trans($error->getMessageTemplate(), array(), "validators");
+            $parameters = $error->getMessageParameters();
+
+            foreach ($parameters as $var => $value) {
+                $template = str_replace($var, $value, $template);
+            }
+
+            $errors[$key] = $template;
+        }
+        if ($form->count()) {
+            foreach ($form as $child) {
+                if (!$child->isValid()) {
+                    $errors[$child->getName()] = $this->getAllFormErrors($child);
+                }
+            }
+        }
+        return $errors;
+    }
+    /**
+     * @Route("/register/confirm", name="registration_confirm")
+     * @Template("ihateClientBundle:Client:regConfirm.html.twig")
+     */
+    public function regConfirmAction()
+    {
+        return array();
     }
 }

@@ -5,12 +5,13 @@
         {% for post in posts %}
             {% include "ihateClientBundle:Content:postContent.html.twig" %}
         {% endfor %}
+        <h1>{{ page }}</h1>
+        {% include 'ihateClientBundle:PageStructure:pagination.html.twig' with {'page': page, 'pages': pages, 'path':'inAccount'} %}
     {% else %}
-        <div class="well3">
+        <div class="well">
             <p class="text">Your timeline is currently empty.
                 Follow people and create new topics to share your hates with them!.
             </p>
         </div>
-
     {% endif %}
 {% endblock %}

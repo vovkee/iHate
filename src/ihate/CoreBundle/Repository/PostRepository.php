@@ -3,6 +3,7 @@
 namespace ihate\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use ihate\CoreBundle\Entity\User;
 use ihate\CoreBundle\Entity\Post;
 
@@ -14,12 +15,15 @@ use ihate\CoreBundle\Entity\Post;
  */
 class PostRepository extends EntityRepository
 {
-    public function showPosts(User $user)
+    /**
+     * @param QueryBuilder $query
+     * @param User $user
+     * @return QueryBuilder
+     */
+    private function setUserAndFollowersQuery(QueryBuilder $query, User $user)
     {
         $ids = $this->getFollowersIds($user->getFollowers());
-        return $this->createQueryBuilder('p')
-            ->addSelect('u, h, hu')
-            ->join('p.user', 'u')
+        return $query->join('p.user', 'u')
             ->leftJoin('p.hates', 'h')
             ->leftJoin('h.user', 'hu')
             ->where('p.user IN (:follow)')
@@ -27,7 +31,38 @@ class PostRepository extends EntityRepository
             ->orWhere('h.user = :user')
             ->orWhere('h.user IN (:follow)')
             ->setParameter('user', $user)
-            ->setParameter('follow', $ids)
+            ->setParameter('follow', $ids);
+    }
+
+    /**
+     * @param User $user
+     * @return integer
+     */
+    public function getCountByUserAndFollowers(User $user)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->select('COUNT(p)');
+
+        return $this->setUserAndFollowersQuery($query, $user)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /**
+     * @param User $user
+     * @param integer $page
+     * @param integer $perPage
+     * @return array
+     */
+    public function getByUserAndFollowers(User $user, $page, $perPage)
+    {
+        $first = ($page-1)*$perPage;
+
+        $query = $this->createQueryBuilder('p')
+            ->addSelect('u, h, hu');
+        return $this->setUserAndFollowersQuery($query, $user)
+            ->setFirstResult($first)
+            ->setMaxResults($perPage)
             ->orderBy('p.createdAt', 'DESC')
             ->getQuery()
             ->getResult();
@@ -42,7 +77,7 @@ class PostRepository extends EntityRepository
         return $ids;
     }
 
-    public function showMyPosts(User $user)
+    public function getMyPosts(User $user)
     {
         return $this->createQueryBuilder('p')
             ->where('p.user = :user')
@@ -55,7 +90,7 @@ class PostRepository extends EntityRepository
     /**
      * @return array
      */
-    public function getTop(User $user)
+    public function getPostTop(User $user)
     {
         $country = $user->getCountry();
         $results = $this->createQueryBuilder('p')
@@ -70,27 +105,6 @@ class PostRepository extends EntityRepository
             ->getQuery()
             ->setMaxResults(5)
             ->getResult();
-        $posts = array();
-        foreach ($results as $post) {
-            $posts[] = $post[0];
-        }
-        return $posts;
-    }
-    /**
-     * @return array
-     */
-    public function getTopAll()
-    {
-        $results = $this->createQueryBuilder('p')
-            ->addSelect('COUNT(h) AS hates')
-            ->join('p.hates', 'h')
-            ->groupBy('p')
-            ->orderBy('hates', 'DESC')
-            ->addOrderBy('p.createdAt', 'DESC')
-            ->getQuery()
-            ->setMaxResults(5)
-            ->getResult();
-
         $posts = array();
         foreach ($results as $post) {
             $posts[] = $post[0];

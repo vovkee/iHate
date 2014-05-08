@@ -2,57 +2,49 @@
 
 {% block content %}
     {{ include('ihateClientBundle:PageStructure:navbarOut.html.twig') }}
-    <div class="conteiner">
-        <div class="content">
-            <div class="row">
-                <div class="col-md-8 col-lg-offset-2">
-                    <div class="regForms">
-                        <div class="well">
-                            <form action="{{ path('registration') }}" {{ form_enctype(form) }}  method="POST">
+    <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4" style="padding-top: 50px;">
+        <div class="well">
+            <form action="{{ path('registration') }}" {{ form_enctype(form) }}  method="POST">
 
-                                {{ form_label(form.user.name) }}
-                                <ul class="error">{{ form_errors(form.user.name) }}</ul>
-                                {{ form_widget(form.user.name, {'attr': {'class':'form-control input-lg','placeholder':'Enter your name'} }) }}
-                                <br>
+                {{ form_label(form.user.name) }}
+                <ul class="error">{{ form_errors(form.user.name) }}</ul>
+                {{ form_widget(form.user.name, {'attr': {'class':'form-control input-lg','placeholder':'Enter your name'} }) }}
+                <br>
 
-                                {{ form_label(form.user.surname) }}
-                                <ul class="error">{{ form_errors(form.user.surname) }}</ul>
-                                {{ form_widget(form.user.surname, {'attr': {'class':'form-control input-lg','placeholder':'Enter your surname'} }) }}
-                                <br>
+                {{ form_label(form.user.surname) }}
+                <ul class="error">{{ form_errors(form.user.surname) }}</ul>
+                {{ form_widget(form.user.surname, {'attr': {'class':'form-control input-lg','placeholder':'Enter your surname'} }) }}
+                <br>
 
-                                {{ form_label(form.user.email) }}
-                                <ul class="error">{{ form_errors(form.user.email) }}</ul>
-                                {{ form_widget(form.user.email, {'attr': {'class':'form-control input-lg','placeholder':'Enter your email'} }) }}
-                                <br>
+                {{ form_label(form.user.email) }}
+                <ul class="error">{{ form_errors(form.user.email) }}</ul>
+                {{ form_widget(form.user.email, {'attr': {'class':'form-control input-lg','placeholder':'Enter your email'} }) }}
+                <br>
 
-                                <ul class="error">{{ form_errors( form.user.password ) }}</ul>
-                                {{ form_row( form.user.password.first, { 'attr':{'class':'form-control input-lg','label': 'Password:', 'placeholder':'Enter your password'}} ) }}
-                                <br>
-                                {{ form_row( form.user.password.second, { 'attr':{'class':'form-control input-lg','label': 'Repeat password:', 'placeholder':'Re-enter your password'}} ) }}
-                                <br>
+                <ul class="error">{{ form_errors( form.user.password ) }}</ul>
+                {{ form_row( form.user.password.first, { 'attr':{'class':'form-control input-lg','label': 'Password:', 'placeholder':'Enter your password'}} ) }}
+                <br>
+                {{ form_row( form.user.password.second, { 'attr':{'class':'form-control input-lg','label': 'Repeat password:', 'placeholder':'Re-enter your password'}} ) }}
+                <br>
 
-                                {{ form_label(form.user.country) }}
-                                <ul class="error">{{ form_errors(form.user.country) }}</ul>
-                                {{ form_widget(form.user.country, {'attr': {'class':'form-control input-lg','placeholder':'Select your country'} }) }}
-                                <br>
+                {{ form_label(form.user.country) }}
+                <ul class="error">{{ form_errors(form.user.country) }}</ul>
+                {{ form_widget(form.user.country, {'attr': {'class':'form-control input-lg','placeholder':'Select your country'} }) }}
+                <br>
 
-                                {{ form_label(form.user.gender) }}
-                                <ul class="error">{{ form_errors(form.user.gender) }}</ul>
-                                {{ form_widget(form.user.gender, {'attr': {'class':'form-control input-lg','placeholder':'Select your gender'} }) }}
-                                <br>
+                {{ form_label(form.user.gender) }}
+                <ul class="error">{{ form_errors(form.user.gender) }}</ul>
+                {{ form_widget(form.user.gender, {'attr': {'class':'form-control input-lg','placeholder':'Select your gender'} }) }}
+                <br>
 
-                                {{ form_label(form.terms) }}
-                                <ul class="error">{{ form_errors(form.terms) }}</ul>
-                                {{ form_widget(form.terms) }}  <a href="#terms">Read the Terms!</a>
-                                <br>
-                                <br>
+                {{ form_label(form.terms) }}
+                <ul class="error">{{ form_errors(form.terms) }}</ul>
+                {{ form_widget(form.terms) }}  <a href="#terms">Read the Terms!</a>
+                <br>
+                <br>
 
-                                {{ form_rest(form) }}
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                {{ form_rest(form) }}
+            </form>
         </div>
     </div>
 {% endblock %}

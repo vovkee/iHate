@@ -8,13 +8,12 @@
                 </a>
             </div>
             <div class="nav nav-sidebar">
-               <p><b>Hello ,</b></p> <p class="sideli">{{ app.user.name }} {{ app.user.surname }}</p>
+               <p style="padding-left: 25%;" class="sideli"><b>Hello ,</b></p> <p style="padding-left: 15%;" class="sideli">{{ app.user.name }} {{ app.user.surname }}</p>
             </div>
             <ul class="nav nav-sidebar">
-                <li {{ cur_route=='edit'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('edit') }}">MyProfile</a></li>
-                <li {{ cur_route=='create'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('create') }}">NewHate</a></li>
-                <li {{ cur_route=='myHates'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('myHates') }}">MyHates</a></li>
-                <li {{ cur_route=='myMates'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('myMates') }}">MyMates</a></li>
+                <li {{ cur_route=='inAccount'?'class="active sideli"' }} class="sideli"><a href="{{ path('inAccount') }}">My First Page</a></li>
+                <li {{ cur_route=='create'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('create') }}">Create New Hate</a></li>
+                <li {{ cur_route=='myHates'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('myHates') }}">My Own Hates</a></li>
             </ul>
         </div>
     </div>

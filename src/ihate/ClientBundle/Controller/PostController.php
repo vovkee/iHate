@@ -27,10 +27,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class PostController extends AdvancedController
 {
     /**
-     * @Route("/post/{id}", name="showPost")
-     * @Template("ihateClientBundle:Content:showPost.html.twig")
+     * @Route("/post/{id}", name="showOnePost")
+     * @Template("ihateClientBundle:Content:showOnePost.html.twig")
      */
-    public function showPost($id, Request $request)
+    public function getOnePostAction($id, Request $request)
     {
         $repository = $this->getPostRepository();
         $post = $repository->findOneById($id);
@@ -91,6 +91,26 @@ class PostController extends AdvancedController
         }
         return $this->render('ihateClientBundle:Content:create.html.twig', array(
                 'form' => $form->createView())
+        );
+    }
+
+    /**
+     * @Route("/myhates", name="myHates")
+     * @Template("ihateClientBundle:Content:myHates.html.twig")
+     */
+    public function myHatesAction()
+    {
+        $user = $this->getUser();
+        $name = $user->getName();
+        $surname = $user->getSurname();
+        $repository = $this->getPostRepository();
+        $posts = $repository->getMyPosts($user);
+        $path = $user->showImage();
+        return array(
+            'name'      =>  $name,
+            'surname'   =>  $surname,
+            'path'      =>  $path,
+            'posts'     =>  $posts
         );
     }
 }

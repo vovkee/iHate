@@ -1,0 +1,30 @@
+{#
+! Required: page, pages, path (url)
+#}
+<ul class="pagination pagination-sm pagination-request">
+    {% set page_negative = page-3 %}
+    {% set page_positive = page+3 %}
+    {% if page != 1 %}
+        <li><a href="{{ path(path, {'page':page-1}) }}">&laquo;</a></li>
+    {% endif %}
+    {% if page_negative > 1 %}
+        <li class="disabled">
+            <a href="#">…{# &bull;&bull;&bull; ... #}</a>
+        </li>
+    {% endif %}
+    {% set page_negative = page_negative<1?1:page_negative %}
+    {% set page_positive = page_positive>pages?pages:page_positive %}
+    {% for i in page_negative..page_positive if pages >= i %}
+        <li {% if page == i %}class="active"{% endif %}>
+            <a href="{{ path(path, {'page':i}) }}">{{ i }}</a>
+        </li>
+    {% endfor %}
+    {% if pages > page_positive %}
+        <li class="disabled">
+            <a href="#">…{# &bull;&bull;&bull; ... #}</a>
+        </li>
+    {% endif %}
+    {% if page != pages %}
+        <li><a href="{{ path(path, {'page':page+1}) }}">&raquo;</a></li>
+    {% endif %}
+</ul>

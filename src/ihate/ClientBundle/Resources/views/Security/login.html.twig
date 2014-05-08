@@ -1,5 +1,5 @@
 <div class="logFroms">
-    <form action="{{ path('login_check') }}" method="post" class="form-signin well" role="form">
+    <form action="{{ path('login_check') }}" method="post" class="form-signin" role="form">
         {% if error is defined and error %}
             <div>{{ error.message }}</div>
         {% endif %}

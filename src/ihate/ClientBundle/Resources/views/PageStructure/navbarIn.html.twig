@@ -12,7 +12,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li {{ cur_route=='inAccount'?'class="active sideli"' }} class="sideli"><a href="{{ path('inAccount') }}">Home</a></li>
+                    <li {{ cur_route=='myMates'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('myMates') }}">My Mates</a></li>
+                    <li {{ cur_route=='edit'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('edit') }}">Profile</a></li>
                     <li {{ cur_route=='#about'?'class="active text"' }}class="sideli"><a href="#about">About</a></li>
                     <li {{ cur_route=='logout'?'class="active text"' }}class="sideli"><a href="{{ path('logout') }}">Sign out</a></li>
                 </ul>

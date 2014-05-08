@@ -1,24 +1,28 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 
 {% block content %}
-    <div class="well">
+    <div style="margin-top: 20px;" class="well">
         {% if follows|length > 0 %}
             <table class="table table-striped">
                 <tr>
                     <th>#</th>
                     <th>First Name</th>
                     <th>Surname</th>
+                    <th></th>
                 </tr>
                 {% for follow in follows %}
                     <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
                         <td>{{ loop.index }}</td>
                         <td class="name">{{ follow.name }}</td>
                         <td class="surname">{{ follow.surname }}</td>
+                        <td>
+                            <a href="{{ path('unfollow', { 'id': follow.id }) }}" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-minus"></span> Remove</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>
         {% else %}
-            <p class="text">Your timeline is currently empty.
+            <p class="text">Your friend list is currently empty.
                 Follow people and create new topics to share your hates with them!.
             </p>
         {% endif %}

@@ -7,12 +7,15 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * User
  *
  * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"}), @ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})}, indexes={@ORM\Index(name="country", columns={"country_id"})})
  * @ORM\Entity(repositoryClass="ihate\CoreBundle\Repository\UserRepository")
+ * @UniqueEntity("email")
+ * @ORM\HasLifecycleCallbacks
  */
 class User implements UserInterface
 {
@@ -42,7 +45,7 @@ class User implements UserInterface
     /**
      * @var string
      * @Assert\NotBlank()
-     * @ORM\Column(name="email", type="string", length=45, nullable=false)
+     * @ORM\Column(name="email", type="string", length=45, unique=true)
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email.")
      */

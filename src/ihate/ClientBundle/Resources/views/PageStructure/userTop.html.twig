@@ -9,7 +9,7 @@
             {% for user in userTop %}
                 <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
                     <td>{{ loop.index }}</td>
-                    <td>efwefwf</td>
+                    <td>{{ user.name }} {{ user.surname }}</td>
                 </tr>
             {% endfor %}
         </tbody>

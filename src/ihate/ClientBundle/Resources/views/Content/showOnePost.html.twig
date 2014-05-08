@@ -7,7 +7,8 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <p class="postText">
                     {{ post.text }}
-                </p>
+                </p><br>
+                <div class="postBottom" style="margin: 0px -20px -20px -20px">
                 {% if app.user.isHated(post) %}
                     <a type="button" class="btn btn-success btn-xs" href="{{ path('unHate', { 'id': post.id }) }}">
                         <span class="glyphicon glyphicon-thumbs-up"></span> unHate
@@ -17,8 +18,10 @@
                         <span class="glyphicon glyphicon-thumbs-down"></span> Hate
                     </a>
                 {% endif %}
-                Total: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.hates|length }}
-                ({{ app.user.country }}: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.getHatesByCountry(app.user.country)|length }})
+
+                    Total: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.hates|length }}
+                    ({{ app.user.country }}: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.getHatesByCountry(app.user.country)|length }})
+                </div>
             </div>
         </div>
     </div>

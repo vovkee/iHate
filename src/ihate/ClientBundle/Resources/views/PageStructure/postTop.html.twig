@@ -9,7 +9,7 @@
             {% for post in top %}
                 <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
                     <td>{{ loop.index }}</td>
-                    <td><a href="/post/{{ post.id }}">{{ post.text|truncate(20) }}</a></td>
+                    <td><a href="/post/{{ post.id }}">{{ post.text|truncate(40) }}</a></td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -18,3 +18,6 @@
     <div class="line-2"></div>
     <h4>No posts from your Country!</h4>
 {% endif %}
+<br>
+<hr class="fancy-line">
+<br>

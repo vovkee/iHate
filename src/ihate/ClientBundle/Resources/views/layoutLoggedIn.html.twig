@@ -5,9 +5,9 @@
         <title>iHate</title>
         {% stylesheets
         '@ihateClientBundle/Resources/public/css/bootstrap.css'
-        '@ihateClientBundle/Resources/public/css/custom.css'
         '@ihateClientBundle/Resources/public/css/dashboard.css'
         '@ihateClientBundle/Resources/public/css/fancyline.css'
+        '@ihateClientBundle/Resources/public/css/custom.css'
         %}
         <link rel="stylesheet" href="{{ asset_url }}"/>
         <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
@@ -16,18 +16,19 @@
         {% endstylesheets %}
     </head>
     <body>
-        {{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
-
-        <div class="col-sm-3 col-md-3 col-lg-3 sidebar">
-            {{ include('ihateClientBundle:PageStructure:sideMenuIn.html.twig') }}
-        </div>
-        <div class="col-sm-6 col-sm-offset-3 col-md-6 col-lg-6 main">
-            {% block content '' %}
-        </div>
-        <div class="col-sm-3 col-md-3 col-lg-3">
-            <div class="container-fluid">
-                {{ render(controller('ihateClientBundle:Content:top')) }}
-                {{ render(controller('ihateClientBundle:Content:userTop')) }}
+        <div class="row">
+            {{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
+            <div class="col-sm-3 col-md-3 col-lg-2 col-lg-offset-1 sidebar">
+                {{ include('ihateClientBundle:PageStructure:sideMenuIn.html.twig') }}
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 col-md-6 col-lg-5 col-lg-offset-3">
+                {% block content '' %}
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <div class="container-fluid" style="position: fixed">
+                    {{ render(controller('ihateClientBundle:Top:postTop')) }}
+                    {{ render(controller('ihateClientBundle:Top:userTop')) }}
+                </div>
             </div>
         </div>
         <div id="footer">

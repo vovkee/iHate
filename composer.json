@@ -21,8 +21,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures" : "dev-master",
-        "jms/di-extra-bundle": "1.4.*@dev",
-        "knplabs/knp-paginator-bundle": "dev-master"
+        "jms/di-extra-bundle": "1.4.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

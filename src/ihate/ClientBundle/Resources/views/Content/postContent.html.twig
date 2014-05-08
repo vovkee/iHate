@@ -1,18 +1,16 @@
-<div class="well">
-    <div class="postTop">
-        {{ include('ihateClientBundle:Content:postHeader.html.twig', { "post": post }) }}
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <p class="postText">{{ post.text|truncate(255) }}</p>
-            </div>
+<div class="postTop">
+    {{ include('ihateClientBundle:Content:postHeader.html.twig', { "post": post }) }}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="postText">{{ post.text|truncate(255) }}</p>
         </div>
-    </div><br>
-</div>
+    </div>
+</div><br><br>
 <div class="postBottom">
     {% if post.text|length > 255 %}
-        <a class="link" href="{{ path('showPost', { 'id': post.id }) }}">Continue reading...</a>
+        <a class="link" href="{{ path('showOnePost', { 'id': post.id }) }}">Continue reading...</a>
     {% else %}
-        <a href="{{ path('showPost', { 'id': post.id }) }}" type="button" class="btn-group-default btn-xs link">
+        <a href="{{ path('showOnePost', { 'id': post.id }) }}" type="button" class="btn-group-default btn-xs link">
             <span class="glyphicon glyphicon-comment"></span> Comment
         </a>
     {% endif %}

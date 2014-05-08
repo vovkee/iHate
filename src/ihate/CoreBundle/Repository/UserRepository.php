@@ -53,14 +53,17 @@ class UserRepository extends EntityRepository
             ->leftjoin('h.user','hu')
             ->where('hu.country = :country')
             ->setParameter('country', $country)
-            ->setMaxResults(5)
             ->groupBy('u')
             ->orderBy('hates', 'DESC')
-           // ->addOrderBy('u.createdAt', 'DESC')
+            ->addOrderBy('u.createdAt', 'DESC')
             ->getQuery()
+            ->setMaxResults(5)
             ->getResult();
+        $users = array();
+        foreach($results as $user){
+            $users[] = $user[0];
+        }
 
-
-        return $results;
+        return $users;
     }
 }
