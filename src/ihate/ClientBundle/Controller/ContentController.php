@@ -39,7 +39,6 @@ class ContentController extends AdvancedController
         $repository = $this->getPostRepository();
         $posts = $repository->getByUserAndFollowers($user, $page, $perPage);
         $postsCount = $repository->getCountByUserAndFollowers($user);
-        //var_dump($postsCount);die();
         $path = $user->showImage();
         return array(
             'page'      => $page,

@@ -25,17 +25,19 @@
                 {% block content '' %}
             </div>
             <div class="col-sm-3 col-md-3 col-lg-3">
-                <div class="container-fluid" style="position: fixed">
+                <div class="" style="position: fixed">
                     {{ render(controller('ihateClientBundle:Top:postTop')) }}
                     {{ render(controller('ihateClientBundle:Top:userTop')) }}
                 </div>
             </div>
         </div>
-        <div id="footer">
-            <div class="container">
-                <p class="text-muted">OLOLO some footer text!</p>
-            </div>
-        </div>
+       {# <div class="row">
+            <hr class="featurette-divider">
+            <footer>
+                <div class="col-md-offset-3 col-md-2"><a href="{{ path('inAccount') }}">Back to top</a></div>
+                <p class="col-md-3">&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            </footer>
+        </div>#}
 
         {% javascripts
         '@ihateClientBundle/Resources/public/js/jquery.js'

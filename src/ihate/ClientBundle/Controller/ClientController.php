@@ -7,6 +7,7 @@ use ihate\CoreBundle\Entity\User;
 use ihate\CoreBundle\Entity\Post;
 use ihate\CoreBundle\Form\Type\UserType;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -63,9 +64,8 @@ class ClientController extends AdvancedController
         }
 
         if($form->isValid()) {
-            $data = $form->
-                getData();
-
+            $data = $form->getData();
+            $this->get('session')->getFlashBag()->set('registration', 'Your registration was successful!');
             $user = new User();
 
             $user->setName($data->getUser()->getName())
@@ -74,15 +74,12 @@ class ClientController extends AdvancedController
                 ->setGender($data->getUser()->getGender())
                 ->setCountry($data->getUser()->getCountry($user))
                 ->setPassword($this->encodePassword($user, $data->getUser()->getPassword()));
-
             $this->em()->persist($user);
             $this->em()->flush();
 
-            $url = $this->generateUrl('registration_confirm');
+            $url = $this->generateUrl('login');
             return $this->redirect($url);
         }
-
-
         return $this->render('ihateClientBundle:Client:registration.html.twig', array(
                 'form' => $form->createView())
         );
@@ -94,8 +91,7 @@ class ClientController extends AdvancedController
          * @var EncoderFactory $encoder
          */
         $encoder = $this->container->get('security.encoder_factory')
-            ->getEncoder($user)
-        ;
+            ->getEncoder($user);
 
         return $encoder->encodePassword($plainPassword, $user->getSalt());
     }
@@ -118,12 +114,12 @@ class ClientController extends AdvancedController
 
     /**
      * @Route ("/edit", name="edit")
-     * @Method("POST")
      * @Template()
      */
-    public function profileAction()
+    public function profileAction(Request $request)
     {
         $user   = $this->getUser();
+
         $entity = $this->getUserRepository()->find($user);
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
@@ -131,21 +127,20 @@ class ClientController extends AdvancedController
         $type = new UserType(UserType::TYPE_EDIT);
 
         $form = $this->createForm($type, $entity);
-
-        $request = $this->get('request_stack')->getCurrentRequest();
         if ($request->getMethod() === 'POST')
         {
             $form->submit($request);
 
             if ($form->isValid()) {
-                $this->em()->persist($entity);
-                $this->em()->flush();
+                $this->get('session')
+                        ->getFlashBag()
+                        ->set('edit', 'Your profile has been updated!');
+                $em = $this->em();
+                $em->persist($entity);
+                $em->flush($entity);
                 $entity->upload();
-                $this->em()->flush();
-
+                $em->flush($entity);
                 return $this->redirect($this->generateUrl('edit'));
-            } else {
-                $this->getAllFormErrors($form);
             }
         }
         return $this->render('ihateClientBundle:Client:edit.html.twig', array(
@@ -155,38 +150,10 @@ class ClientController extends AdvancedController
     }
 
     /**
-     * Returns array of form errors
-     * @param \Symfony\Component\Form\Form $form
-     * @return array
+     * @Route("/registration/terms", name="terms")
+     * @Template("ihateClientBundle:Client:terms.html.twig")
      */
-    protected function getAllFormErrors(\Symfony\Component\Form\Form $form) {
-        $errors = array();
-        $translation = $this->container->get('translator');
-
-        foreach ($form->getErrors() as $key => $error) {
-            $template = $translation->trans($error->getMessageTemplate(), array(), "validators");
-            $parameters = $error->getMessageParameters();
-
-            foreach ($parameters as $var => $value) {
-                $template = str_replace($var, $value, $template);
-            }
-
-            $errors[$key] = $template;
-        }
-        if ($form->count()) {
-            foreach ($form as $child) {
-                if (!$child->isValid()) {
-                    $errors[$child->getName()] = $this->getAllFormErrors($child);
-                }
-            }
-        }
-        return $errors;
-    }
-    /**
-     * @Route("/register/confirm", name="registration_confirm")
-     * @Template("ihateClientBundle:Client:regConfirm.html.twig")
-     */
-    public function regConfirmAction()
+    public function termsAction()
     {
         return array();
     }

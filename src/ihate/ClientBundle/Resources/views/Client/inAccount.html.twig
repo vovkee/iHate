@@ -5,7 +5,6 @@
         {% for post in posts %}
             {% include "ihateClientBundle:Content:postContent.html.twig" %}
         {% endfor %}
-        <h1>{{ page }}</h1>
         {% include 'ihateClientBundle:PageStructure:pagination.html.twig' with {'page': page, 'pages': pages, 'path':'inAccount'} %}
     {% else %}
         <div class="well">

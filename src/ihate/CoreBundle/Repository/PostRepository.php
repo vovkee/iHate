@@ -68,6 +68,10 @@ class PostRepository extends EntityRepository
             ->getResult();
     }
 
+    /**
+     * @param $users
+     * @return array
+     */
     private function getFollowersIds($users)
     {
         $ids = array();
@@ -77,6 +81,10 @@ class PostRepository extends EntityRepository
         return $ids;
     }
 
+    /**
+     * @param User $user
+     * @return array
+     */
     public function getMyPosts(User $user)
     {
         return $this->createQueryBuilder('p')
@@ -88,6 +96,7 @@ class PostRepository extends EntityRepository
     }
 
     /**
+     * @param User $user
      * @return array
      */
     public function getPostTop(User $user)

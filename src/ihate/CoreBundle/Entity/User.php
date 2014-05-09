@@ -53,6 +53,7 @@ class User implements UserInterface
 
     /**
      * @Assert\Image()
+     * @Assert\File(maxSize="5M")
      */
     private $file;
 

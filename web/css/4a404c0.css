@@ -5787,20 +5787,32 @@ button.close {
 .content{
     padding-top: 60px;
 }
+
+.confirm h1 {
+    font-family: Francois One, sans-serif;
+}
+
 .sideli{
     font-size: 17px;
+}
+
+.termsText{
+    text-indent:20px
 }
 .text{
     font-family: 'Righteous', cursive;
 }
+
 .searchText{
     font-family: 'Roboto Slab', serif;
 }
+
 .postText{
     text-indent:35px;
     font-size: 12pt;
     font-family: 'Helvetica Neue light', serif;
 }
+
 .blockquote-reverse,
 blockquote.pull-right {
     padding-right: 15px;
@@ -5809,6 +5821,7 @@ blockquote.pull-right {
     border-right: 5px solid rgba(25,110,255,.5);
     border-left: 0;
 }
+
 .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -5816,14 +5829,17 @@ blockquote.pull-right {
     margin-left: auto;
     width: 800px;
 }
+
 .logFroms{
     padding-top: 200px;
 }
+
 .regForms{
     max-width: 500px;
     padding-left: 50px;
 
 }
+
 .sideMenu{
     width:150px;
 }
@@ -5831,6 +5847,7 @@ blockquote.pull-right {
 .navbar-inverse .navbar-brand{
     color: gold;
 }
+
 .main-content{
     width: auto;
     min-height: 20px;
@@ -5844,19 +5861,23 @@ blockquote.pull-right {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
+
 .thumbnail{
     margin-left: 15px;
     margin-right: 15px;
 }
+
 .imageContainer{
     width: 100%;
     height: 100%;
     padding-bottom: 10px;
 }
+
 .imageContainer iframe{
     width: 100%;
     height: 40%;
 }
+
 .imageContainer img{
     width: 100%;
     height: auto;
@@ -5865,15 +5886,28 @@ blockquote.pull-right {
     width:70px !important;
     height:auto !important;
 }
+
 .regLink{
     padding-left: 75px;
 }
+
 body{
     /*background: url('../images/k1.png') repeat;*/
     /*background: url('../images/kov.jpg') repeat;*/
 }
-.countryTop{
 
+footer {
+    color: black;
+    background: #9D96FF;
+    padding: 17px 0 18px 0;
+    height: 60px;
+}
+
+footer a {
+    color: #222;
+}
+footer a:hover {
+    color: #222;
 }
 
 .line-1 {
@@ -5882,6 +5916,7 @@ body{
     border-bottom: 1px solid #fff;
     height: 0px;
 }
+
 .line-2 {
     margin-top: 15px;
     width:100%;
@@ -5889,6 +5924,7 @@ body{
     border-bottom: 1px solid #38393B;
     height: 0px;
 }
+
 .form-signin input[type="text"] {
     margin-bottom: -1px;
     border-top: 1px solid #000;
@@ -5896,6 +5932,7 @@ body{
     border-left: 1px solid #000;
     border-radius: 6px 6px 0px 0px;
 }
+
 .form-signin input[type="password"] {
     z-index: 2;
     margin-bottom: 20px;
@@ -5906,6 +5943,7 @@ body{
     border-radius: 0px 0px 6px 6px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0px 1px 0px 0px rgba(255, 255, 255, 0.5);
 }
+
 .form-control {
     display: block;
     width: 100%;
@@ -5924,6 +5962,7 @@ body{
     -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+
 .commentCreate{
     margin-top: -22px;
     padding-top:10px;
@@ -5931,6 +5970,7 @@ body{
     padding-bottom: 20px;
     padding-right:50px;
 }
+
 .commentShow{
     min-height: 20px;
     padding: 19px;
@@ -5942,14 +5982,17 @@ body{
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
+
 .comment{
     background-color: #CCB746;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
+
 .commentContent{
     max-width: 700px;
 }
+
 .postBottom{
     margin-top: -25px;
     background: url('../images/k3.jpg') repeat;
@@ -5958,20 +6001,26 @@ body{
     padding-top: 6px;
     border-top: 1px solid rgba(11, 11, 12, 0);
 }
+
 .well {
     margin-top: 20px;
 }
+
 .sidebar{
     background-color: #CCBD50;
+    border-right: 0px solid #eee;
 }
+
 .link{
     color: #ffff00;
 }
+
 .postTop{
     padding-top: 10px;
     border-top: 1px solid #555;
     margin-bottom: -20px;
 }
+
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th{
     background-color: rgba(107,180,232,.5);
 }

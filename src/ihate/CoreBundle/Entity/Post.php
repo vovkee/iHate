@@ -27,8 +27,7 @@ class Post
     private $id;
 
     /**
-     * @Assert\Image()
-     * @Assert\File(maxSize="6000000")
+     * @Assert\File(maxSize="5M")
      */
     private $file;
 

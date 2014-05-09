@@ -32,15 +32,6 @@ class UserRepository extends EntityRepository
             ->getResult();
     }
 
-    public function getListPaginator($first, $max)
-    {
-        $qb = $this->createQueryBuilder('p')
-            ->orderBy('p.id', 'DESC')
-            ->setFirstResult($first)
-            ->setMaxResults($max);
-
-        return new Paginator($qb->getQuery());
-    }
     /**
      * @return array
      */
@@ -60,7 +51,7 @@ class UserRepository extends EntityRepository
             ->setMaxResults(5)
             ->getResult();
         $users = array();
-        foreach($results as $user){
+        foreach ($results as $user) {
             $users[] = $user[0];
         }
 

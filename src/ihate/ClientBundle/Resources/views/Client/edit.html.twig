@@ -1,41 +1,46 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 {% block content %}
-<div class="well">
+    {% for flashMessage in app.session.flashbag.get('edit') %}
+        <h2 class="well confirm col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+            {{ flashMessage }}
+        </h2>
+    {% endfor %}
+    <div class="well">
 
-    <form action="{{ path('edit') }}" {{ form_enctype(form) }}  method="POST" novalidate="novalidate">
+        <form action="{{ path('edit') }}" {{ form_enctype(form) }}  method="POST" novalidate="novalidate">
 
-        {{ form_label(form.file, 'Change your avatar') }}
-        <ul class="error">{{ form_errors(form.file) }}</ul>
-        {{ form_widget(form.file, {'attr': {'class':'form-control input-xs'} }) }}
-        <br>
+            {{ form_label(form.file, 'Change your avatar') }}
+            <ul class="error">{{ form_errors(form.file) }}</ul>
+            {{ form_widget(form.file, {'attr': {'class':'form-control input-xs'} }) }}
+            <br>
 
-        {{ form_label(form.name) }}
-        <ul class="error">{{ form_errors(form.name) }}</ul>
-        {{ form_widget(form.name, {'attr': {'class':'form-control input-lg','placeholder':'Enter your name'} }) }}
-        <br>
+            {{ form_label(form.name) }}
+            <ul class="error">{{ form_errors(form.name) }}</ul>
+            {{ form_widget(form.name, {'attr': {'class':'form-control input-lg','placeholder':'Enter your name'} }) }}
+            <br>
 
-        {{ form_label(form.surname) }}
-        <ul class="error">{{ form_errors(form.surname) }}</ul>
-        {{ form_widget(form.surname, {'attr': {'class':'form-control input-lg','placeholder':'Enter your surname'} }) }}
-        <br>
+            {{ form_label(form.surname) }}
+            <ul class="error">{{ form_errors(form.surname) }}</ul>
+            {{ form_widget(form.surname, {'attr': {'class':'form-control input-lg','placeholder':'Enter your surname'} }) }}
+            <br>
 
-        {{ form_label(form.email) }}
-        <ul class="error">{{ form_errors(form.email) }}</ul>
-        {{ form_widget(form.email, {'attr': {'class':'form-control input-lg','placeholder':'Enter your email'} }) }}
-        <br>
+            {{ form_label(form.email) }}
+            <ul class="error">{{ form_errors(form.email) }}</ul>
+            {{ form_widget(form.email, {'attr': {'class':'form-control input-lg','placeholder':'Enter your email'} }) }}
+            <br>
 
-        {{ form_label(form.country) }}
-        <ul class="error">{{ form_errors(form.country) }}</ul>
-        {{ form_widget(form.country, {'attr': {'class':'form-control input-lg','placeholder':'Select your country'} }) }}
-        <br>
+            {{ form_label(form.country) }}
+            <ul class="error">{{ form_errors(form.country) }}</ul>
+            {{ form_widget(form.country, {'attr': {'class':'form-control input-lg','placeholder':'Select your country'} }) }}
+            <br>
 
-        {{ form_label(form.about) }}
-        <ul class="error">{{ form_errors(form.about) }}</ul>
-        {{ form_widget(form.about, {'attr': {'class':'form-control input-lg','placeholder':'Write something about you.'} }) }}
-        <br>
+            {{ form_label(form.about) }}
+            <ul class="error">{{ form_errors(form.about) }}</ul>
+            {{ form_widget(form.about, {'attr': {'class':'form-control input-lg','placeholder':'Write something about you.'} }) }}
+            <br>
 
-        {{ form_widget(form.save, { 'label': 'Change' }) }}
-        {{ form_rest(form) }}
-    </form>
-</div>
+            {{ form_widget(form.save, { 'label': 'Change' }) }}
+            {{ form_rest(form) }}
+        </form>
+    </div>
 {% endblock %}

@@ -1,11 +1,16 @@
 <div class="logFroms">
+    {% for flashMessage in app.session.flashbag.get('registration') %}
+       <h2 class="well confirm col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+           {{ flashMessage }}
+       </h2>
+    {% endfor %}
     <form action="{{ path('login_check') }}" method="post" class="form-signin" role="form">
         {% if error is defined and error %}
             <div>{{ error.message }}</div>
         {% endif %}
             <input type="text" id="username"  class="form-control" name="_username" value="{{ last_username }}" placeholder="Enter your email" />
             <input type="password"  class="form-control" id="password" name="_password" placeholder="Enter your password"/>
-            <button type="submit" class="btn btn-lg btn-primary btn-block">login</button>
+            <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
             <div class="regLink">
                 <a href="{{ path('registration') }}" role="button">New to iHate? Sign Up</a>
             </div>
