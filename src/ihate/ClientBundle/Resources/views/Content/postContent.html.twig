@@ -1,29 +1,43 @@
-<div class="postTop">
-    {{ include('ihateClientBundle:Content:postHeader.html.twig', { "post": post }) }}
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <p class="postText">{{ post.text|truncate(255) }}</p>
-        </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        {{ include('ihateClientBundle:Content:postHeader.html.twig', { "post": post }) }}
     </div>
-</div><br><br>
-<div class="postBottom">
-    {% if post.text|length > 255 %}
-        <a class="link" href="{{ path('showOnePost', { 'id': post.id }) }}">Continue reading...</a>
-    {% else %}
-        <a href="{{ path('showOnePost', { 'id': post.id }) }}" type="button" class="btn-group-default btn-xs link">
-            <span class="glyphicon glyphicon-comment"></span> Comment
-        </a>
+    {% if post.path or post.embed %}
+        <div class="panel-heading">
+            <div class="imageContainer">
+                {% if post.path %}
+                    <img src="{{ asset(post.showImage()) }}"/>
+                {% endif %}
+
+                {% if post.embed %}
+                <iframe id="ytplayer" type="text/html" width="640" height="360"
+                        src="https://www.youtube.com/embed/{{ post.embed }}?enablejsapi=1&showinfo=0&theme=light"
+                        frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+            </div>
+        </div>
     {% endif %}
-    {% if app.user.isHated(post) %}
-        <a type="button" class="btn btn-success btn-xs" href="{{ path('unHate', { 'id': post.id }) }}">
-            <span class="glyphicon glyphicon-thumbs-up"></span> unHate
-        </a>
-    {% else %}
-        <a type="button" class="btn btn-danger btn-xs" href="{{ path('hate', { 'id': post.id }) }}">
-            <span class="glyphicon glyphicon-thumbs-down"></span> Hate
-        </a>
-    {% endif %}
-    Total: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.hates|length }}
-    ({{ app.user.country }}: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.getHatesByCountry(app.user.country)|length }})
-</div><br><br>
+    <div class="panel-body">
+        <p class="postText">{{ post.text|truncate(255) }}</p>
+        <div class="clearfix"></div>
+        {% if post.text|length > 255 %}
+            <a href="{{ path('showOnePost', { 'id': post.id }) }}">Continue reading...</a>
+        {% else %}
+            <a href="{{ path('showOnePost', { 'id': post.id }) }}" type="button" class="btn-group-default btn-xs">
+                <span class="glyphicon glyphicon-comment"></span> Comment
+            </a>
+        {% endif %}
+        {% if app.user.isHated(post) %}
+            <a type="button" class="btn btn-success btn-xs" href="{{ path('unHate', { 'id': post.id }) }}">
+                <span class="glyphicon glyphicon-thumbs-up"></span> unHate
+            </a>
+        {% else %}
+            <a type="button" class="btn btn-danger btn-xs" href="{{ path('hate', { 'id': post.id }) }}">
+                <span class="glyphicon glyphicon-thumbs-down"></span> Hate
+            </a>
+        {% endif %}
+        Total: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.hates|length }}
+        ({{ app.user.country }}: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.getHatesByCountry(app.user.country)|length }})
+    </div>
+</div>
 

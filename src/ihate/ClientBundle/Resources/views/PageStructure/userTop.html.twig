@@ -1,20 +1,24 @@
-<h3>Main haters to follow in your country ({{app.user.getCountry()}}):</h3>
-{% if userTop %}
-    <table class="table">
-        <thead>
-            <th>#</th>
-            <th>Posts</th>
-        </thead>
-        <tbody>
-            {% for user in userTop %}
-                <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
-                    <td>{{ loop.index }}</td>
-                    <td>{{ user.name }} {{ user.surname }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-{% else %}
-    <div class="line-2"></div>
-    <h4>No haters from your Country!</h4>
-{% endif %}
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Main haters to follow in your country ({{app.user.getCountry()}}):</h4></div>
+    <div class="panel-body">
+        {% if userTop %}
+            <table class="table">
+                <thead>
+                <th>#</th>
+                <th>Posts</th>
+                </thead>
+                <tbody>
+                {% for user in userTop %}
+                    <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+                        <td>{{ loop.index }}</td>
+                        <td>{{ user.name }} {{ user.surname }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="line-2"></div>
+            <h4>No haters from your Country!</h4>
+        {% endif %}
+    </div>
+</div>

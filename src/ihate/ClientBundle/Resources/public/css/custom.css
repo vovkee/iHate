@@ -2,6 +2,23 @@
     padding-top: 60px;
 }
 
+.btn-primary {
+    color: white;
+    background-color: #299192;
+    border-color: #299192;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #3FA88B;
+    border-color: #3FA88B;
+}
+
+#login a {
+    color: #629417;
+    text-decoration: none;
+}
+
 .confirm h1 {
     font-family: Francois One, sans-serif;
 }
@@ -97,8 +114,9 @@ blockquote.pull-right {
     height: auto;
 }
 .ownerImage{
-    width:70px !important;
+    width: 100%;
     height:auto !important;
+    padding-left: 8px;
 }
 
 .regLink{
@@ -209,7 +227,6 @@ footer a:hover {
 
 .postBottom{
     margin-top: -25px;
-    background: url('../images/k3.jpg') repeat;
     padding-left:10px;
     padding-bottom: 6px;
     padding-top: 6px;

@@ -1,20 +1,24 @@
-{% set cur_route = app.request.attributes.get('_route') %}
-<div class="container-fluid">
-    <div class="row">
-        <div>
-            <div class="nav nav-sidebar">
-                <a href="{{ path('edit') }}" class="thumbnail">
-                     <img src="{{ asset(app.user.showImage()) }}"/>
-                </a>
-            </div>
-            <div class="nav nav-sidebar">
-               <p style="padding-left: 25%;" class="sideli"><b>Hello ,</b></p> <p style="padding-left: 15%;" class="sideli">{{ app.user.name }} {{ app.user.surname }}</p>
-            </div>
-            <ul class="nav nav-sidebar">
-                <li {{ cur_route=='inAccount'?'class="active sideli"' }} class="sideli"><a href="{{ path('inAccount') }}">My First Page</a></li>
-                <li {{ cur_route=='create'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('create') }}">Create New Hate</a></li>
-                <li {{ cur_route=='myHates'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('myHates') }}">My Own Hates</a></li>
-            </ul>
-        </div>
-    </div>
+<div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+
+    <ul class="nav hidden-xs" id="lg-menu">
+        <li><a href="{{ path('edit') }}" class="thumbnail">
+                <img class="ownerImage" src="{{ asset(app.user.showImage()) }}"/>
+            </a></li>
+        <li> <p class="sideli"><b>Hello ,</b></p> <p class="sideli">{{ app.user.name }} {{ app.user.surname }}</p></li>
+        <li><a href="{{ path('inAccount') }}"><i class="glyphicon glyphicon-list-alt"></i> My First Page</a></li>
+        <li><a href="{{ path('create') }}"><i class="glyphicon glyphicon-pencil"></i> Create New Hate</a></li>
+        <li><a href="{{ path('myHates') }}"><i class="glyphicon glyphicon-paperclip"></i> My Own Hates</a></li>
+    </ul>
+    <ul class="list-unstyled hidden-xs" id="sidebar-footer">
+        <li>
+            <a><h3>iHate</h3> <i class="glyphicon glyphicon-fire"></i> ihate</a>
+        </li>
+    </ul>
+
+    <!-- tiny only nav-->
+    <ul class="nav visible-xs" id="xs-menu">
+        <li><a href="{{ path('inAccount') }}" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
+        <li><a href="{{ path('create') }}" class="text-center"><i class="glyphicon glyphicon-pencil"></i></a></li>
+        <li><a href="{{ path('myHates') }}" class="text-center"><i class="glyphicon glyphicon-paperclip"></i></a></li>
+    </ul>
 </div>

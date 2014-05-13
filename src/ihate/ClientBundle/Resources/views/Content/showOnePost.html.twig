@@ -1,31 +1,28 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 
 {% block content %}
-    <div class="well">
-        {{ include('ihateClientBundle:Content:postHeader.html.twig', { "post": post }) }}
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <p class="postText">
-                    {{ post.text }}
-                </p><br>
-                <div class="postBottom" style="margin: 0px -20px -20px -20px">
-                {% if app.user.isHated(post) %}
-                    <a type="button" class="btn btn-success btn-xs" href="{{ path('unHate', { 'id': post.id }) }}">
-                        <span class="glyphicon glyphicon-thumbs-up"></span> unHate
-                    </a>
-                {% else %}
-                    <a type="button" class="btn btn-danger btn-xs" href="{{ path('hate', { 'id': post.id }) }}">
-                        <span class="glyphicon glyphicon-thumbs-down"></span> Hate
-                    </a>
-                {% endif %}
+    {{ include('ihateClientBundle:Content:postHeader.html.twig', { "post": post }) }}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="postText">
+                {{ post.text }}
+            </p><br>
+            <div class="postBottom" style="margin: 0px -20px -20px -20px">
+            {% if app.user.isHated(post) %}
+                <a type="button" class="btn btn-success btn-xs" href="{{ path('unHate', { 'id': post.id }) }}">
+                    <span class="glyphicon glyphicon-thumbs-up"></span> unHate
+                </a>
+            {% else %}
+                <a type="button" class="btn btn-danger btn-xs" href="{{ path('hate', { 'id': post.id }) }}">
+                    <span class="glyphicon glyphicon-thumbs-down"></span> Hate
+                </a>
+            {% endif %}
 
-                    Total: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.hates|length }}
-                    ({{ app.user.country }}: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.getHatesByCountry(app.user.country)|length }})
-                </div>
+                Total: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.hates|length }}
+                ({{ app.user.country }}: <span class="glyphicon glyphicon-thumbs-down hateCounter"></span> {{ post.getHatesByCountry(app.user.country)|length }})
             </div>
         </div>
     </div>
-
     <div class="comment">
         <div class="commentCreate">
             <h4>Comment section</h4>
@@ -36,5 +33,4 @@
             {{ include('ihateClientBundle:Comment:commentShow.html.twig') }}
         </div>
     </div>
-
 {% endblock %}

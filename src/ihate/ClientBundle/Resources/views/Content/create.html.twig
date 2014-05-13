@@ -1,25 +1,28 @@
 {% extends "ihateClientBundle::layoutLoggedIn.html.twig" %}
 
 {% block content %}
-    <div class="well">
-        <form action="{{ path('create') }}" {{ form_enctype(form) }}  method="POST" novalidate="novalidate">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>Create new Hate</h4></div>
+        <div class="panel-body">
+            <form action="{{ path('create') }}" {{ form_enctype(form) }}  method="POST" novalidate="novalidate">
 
-            {{ form_label(form.file) }}
-            <ul class="error">{{ form_errors(form.file) }}</ul>
-            {{ form_widget(form.file, {'attr': {'class':'form-control input-md' }}) }}
-            <br>
+                {{ form_label(form.file) }}
+                <ul class="error">{{ form_errors(form.file) }}</ul>
+                {{ form_widget(form.file, {'attr': {'class':'form-control input-md' }}) }}
+                <br>
 
-            {{ form_label(form.embed) }}
-            <ul class="error">{{ form_errors(form.embed) }}</ul>
-            {{ form_widget(form.embed, {'attr': {'class':'form-control input-md','placeholder':'Enter link from youtube here'} }) }}
-            <br>
+                {{ form_label(form.embed) }}
+                <ul class="error">{{ form_errors(form.embed) }}</ul>
+                {{ form_widget(form.embed, {'attr': {'class':'form-control input-md','placeholder':'Enter link from youtube here'} }) }}
+                <br>
 
-            {{ form_label(form.text) }}
-            <ul class="error">{{ form_errors(form.text) }}</ul>
-            {{ form_widget(form.text, {'attr': {'class':'form-control input-md','placeholder':'Enter text here'} }) }}
-            <br>
-            {{ form(form) }}
-            {{ form_rest(form) }}
-        </form>
+                {{ form_label(form.text) }}
+                <ul class="error">{{ form_errors(form.text) }}</ul>
+                {{ form_widget(form.text, {'attr': {'class':'form-control input-md','placeholder':'Enter text here'} }) }}
+                <br>
+                {{ form(form) }}
+                {{ form_rest(form) }}
+            </form>
+        </div>
     </div>
 {% endblock %}

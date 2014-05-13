@@ -1,25 +1,41 @@
 {% set cur_route = app.request.attributes.get('_route') %}
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand text" href="{{ path('inAccount') }}">iHate</a>
+
+<div class="navbar navbar-blue navbar-static-top">
+    <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="{{ path('inAccount') }}" class="navbar-brand logo">iH</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+        <form class="navbar-form navbar-left" action="{{ path('search') }}">
+            <div class="input-group input-group-sm" style="max-width:360px;">
+                <input type="text" class="form-control" placeholder="Search for friends..." name="search" id="srch-term" value="{{ search|default('') }}">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li {{ cur_route=='myMates'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('myMates') }}">My Mates</a></li>
-                    <li {{ cur_route=='edit'?'class="active sideli"':'class="sideli"' }}><a href="{{ path('edit') }}">Profile</a></li>
-                    <li {{ cur_route=='#about'?'class="active text"' }}class="sideli"><a href="#about">About</a></li>
-                    <li {{ cur_route=='logout'?'class="active text"' }}class="sideli"><a href="{{ path('logout') }}">Sign out</a></li>
+        </form>
+        <ul class="nav navbar-nav">
+            <li>
+                <a href={{ path('inAccount') }}><i class="glyphicon glyphicon-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="{{ path('create') }}" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('edit') }}">Profile</a></li>
+                    <li><a href="{{ path('logout') }}">Logout</a></li>
+
                 </ul>
-                <form action="{{ path('search') }}" method="get" class="navbar-form navbar-right">
-                    <input type="text" name="search" class="form-control searchText" placeholder="Search for friends..." value="{{ search|default('') }}">
-                </form>
-            </div>
-        </div>
+            </li>
+        </ul>
+    </nav>
 </div>

@@ -1,4 +1,4 @@
-<div class="row" style="margin-bottom: 10px;">
+<div class="row" style="margin-bottom: -20px;">
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
         <img class="ownerImage" src="{{ asset(post.user.showImage()) }}"/>
     </div>
@@ -10,17 +10,4 @@
         </p>
     </div>
 </div>
-<div class="line-1"></div>
 <br>
-<div class="imageContainer col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    {% if post.path %}
-        <img src="{{ asset(post.showImage()) }}"/>
-        <div class="row">
-            <div style="margin-bottom: 13px;" class="line-2"></div>
-        </div>
-    {% endif %}
-
-    {% if post.embed %}
-        <iframe src="//www.youtube.com/embed/{{ post.embed }}" frameborder="0" allowfullscreen></iframe>
-    {% endif %}
-</div>

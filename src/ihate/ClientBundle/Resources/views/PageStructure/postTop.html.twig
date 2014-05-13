@@ -1,23 +1,24 @@
-<h3>Most hated posts from your country ({{app.user.getCountry()}}):</h3>
-{% if top %}
-    <table class="table">
-        <thead>
-            <th>#</th>
-            <th>Posts</th>
-        </thead>
-        <tbody>
-            {% for post in top %}
-                <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
-                    <td>{{ loop.index }}</td>
-                    <td><a href="/post/{{ post.id }}">{{ post.text|truncate(40) }}</a></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-{% else %}
-    <div class="line-2"></div>
-    <h4>No posts from your Country!</h4>
-{% endif %}
-<br>
-<hr class="fancy-line">
-<br>
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Most hated posts from your country ({{app.user.getCountry()}}):</h4></div>
+    <div class="panel-body">
+        {% if top %}
+            <table class="table">
+                <thead>
+                <th>#</th>
+                <th>Posts</th>
+                </thead>
+                <tbody>
+                {% for post in top %}
+                    <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+                        <td>{{ loop.index }}</td>
+                        <td><a href="/post/{{ post.id }}">{{ post.text|truncate(40) }}</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="line-2"></div>
+            <h4>No posts from your Country!</h4>
+        {% endif %}
+    </div>
+</div>

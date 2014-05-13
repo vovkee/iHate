@@ -8,6 +8,7 @@
         '@ihateClientBundle/Resources/public/css/dashboard.css'
         '@ihateClientBundle/Resources/public/css/fancyline.css'
         '@ihateClientBundle/Resources/public/css/custom.css'
+        '@ihateClientBundle/Resources/public/css/custom1.css'
         %}
         <link rel="stylesheet" href="{{ asset_url }}"/>
         <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
@@ -15,37 +16,105 @@
         <link href='http://fonts.googleapis.com/css?family=Balthazar' rel='stylesheet' type='text/css'>
         {% endstylesheets %}
     </head>
+    <!-- HTML code from Bootply.com editor -->
+
     <body>
-        <div class="row">
-            {{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
-            <div class="col-sm-3 col-md-3 col-lg-2 col-lg-offset-1 sidebar">
+        <div class="wrapper">
+            <div class="box">
+                <div class="row row-offcanvas row-offcanvas-left">
+                <!-- sidebar -->
                 {{ include('ihateClientBundle:PageStructure:sideMenuIn.html.twig') }}
+                <!-- /sidebar -->
+
+                <!-- main right col -->
+                    <div class="column col-sm-10 col-xs-11" id="main">
+                        <!-- top nav -->
+                        {{ include('ihateClientBundle:PageStructure:navbarIn.html.twig') }}
+                        <!-- /top nav -->
+                        <div class="padding">
+                            <div class="full col-sm-9">
+                                <!-- content -->
+                                <div class="row">
+                                    <!-- main col left -->
+                                    <div class="col-sm-7">
+                                        {% block content '' %}
+                                    </div>
+                                    <!-- main col right -->
+                                    <div class="col-sm-5">
+                                        {{ render(controller('ihateClientBundle:Top:postTop')) }}
+                                        <hr class="fancy-line">
+                                        {{ render(controller('ihateClientBundle:Top:userTop')) }}
+                                    </div>
+                                </div>
+                            </div><!--/row-->
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
+                                </div>
+                            </div>
+
+                            <div class="row" id="footer">
+                                <div class="col-sm-6">
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>
+                                        <a href="#" class="pull-right">©Copyright 2013</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <h4 class="text-center">
+                                <a href="http://bootply.com/96266" target="ext">Download this Template @Bootply</a>
+                            </h4>
+                            <hr>
+                        </div><!-- /col-9 -->
+                    </div><!-- /padding -->
+                </div>
+                    <!-- /main -->
             </div>
-            <div class="col-sm-6 col-sm-offset-3 col-md-6 col-lg-5 col-lg-offset-3">
-                {% block content '' %}
-            </div>
-            <div class="col-sm-3 col-md-3 col-lg-3">
-                <div class="" style="position: fixed">
-                    {{ render(controller('ihateClientBundle:Top:postTop')) }}
-                    {{ render(controller('ihateClientBundle:Top:userTop')) }}
+        </div>
+        <!--post modal-->
+        <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        Update Status
+                    </div>
+                    <div class="modal-body">
+                        <form class="form center-block">
+                            <div class="form-group">
+                                <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div>
+                            <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+                            <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-       {# <div class="row">
-            <hr class="featurette-divider">
-            <footer>
-                <div class="col-md-offset-3 col-md-2"><a href="{{ path('inAccount') }}">Back to top</a></div>
-                <p class="col-md-3">&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-            </footer>
-        </div>#}
 
-        {% javascripts
-        '@ihateClientBundle/Resources/public/js/jquery.js'
-        '@ihateClientBundle/Resources/public/js/bootstrap.js'
-        '@ihateClientBundle/Resources/public/js/holder.js'
-        '@ihateClientBundle/Resources/public/js/hyphenate.js'
-        %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        {# <div class="row">
+             <hr class="featurette-divider">
+             <footer>
+                 <div class="col-md-offset-3 col-md-2"><a href="{{ path('inAccount') }}">Back to top</a></div>
+                 <p class="col-md-3">&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+             </footer>
+         </div>#}
+
+            {% javascripts
+            '@ihateClientBundle/Resources/public/js/jquery.js'
+            '@ihateClientBundle/Resources/public/js/bootstrap.js'
+            '@ihateClientBundle/Resources/public/js/holder.js'
+            '@ihateClientBundle/Resources/public/js/hyphenate.js'
+            %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
     </body>
 </html>
