@@ -2,13 +2,13 @@
     padding-top: 60px;
 }
 
-.btn-primary {
+#login.btn-primary {
     color: white;
     background-color: #299192;
     border-color: #299192;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+#login.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
     color: #fff;
     background-color: #3FA88B;
     border-color: #3FA88B;
@@ -93,6 +93,11 @@ blockquote.pull-right {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
 
+#sidebar a, #sidebar-footer a {
+    padding-left: 10px !important;
+}
+
+
 .thumbnail{
     margin-left: 15px;
     margin-right: 15px;
@@ -104,9 +109,13 @@ blockquote.pull-right {
     padding-bottom: 10px;
 }
 
+.nav > li > a > img {
+     max-width: 100%;
+}
+
 .imageContainer iframe{
     width: 100%;
-    height: 40%;
+    height: 50%;
 }
 
 .imageContainer img{
@@ -115,7 +124,7 @@ blockquote.pull-right {
 }
 .ownerImage{
     width: 100%;
-    height:auto !important;
+    height:auto;
     padding-left: 8px;
 }
 
@@ -196,11 +205,15 @@ footer a:hover {
 }
 
 .commentCreate{
-    margin-top: -22px;
-    padding-top:10px;
-    padding-left:30px;
-    padding-bottom: 20px;
-    padding-right:50px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+}
+
+.navbar-blue .dropdown-menu li a {
+    color: #D5D5D5;
 }
 
 .commentShow{
@@ -226,11 +239,14 @@ footer a:hover {
 }
 
 .postBottom{
-    margin-top: -25px;
-    padding-left:10px;
-    padding-bottom: 6px;
-    padding-top: 6px;
-    border-top: 1px solid rgba(11, 11, 12, 0);
+    background-color: #797D86;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left:20px;
+    margin-bottom: -15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
 }
 
 .well {
